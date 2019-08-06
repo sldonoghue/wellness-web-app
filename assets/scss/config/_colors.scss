@@ -1,0 +1,61 @@
+$colors: (
+  "blue-light": #00B5C9,
+  "black": #474747,
+  "white": #fff,
+  "grey": #ccc,
+  "grey-alt": #CFD8DC,
+  "grey-dark": #686868,
+  "grey-gift-list": #909090,
+  "grey-light": #c7c6c6,
+  "grey-ultra-light": #F9F9F9,
+  "red": #C9001C,
+  "red-light": #C9004C,
+);
+
+$brand-colors: (
+  "primary": #00B6C8,
+  "primary-active": #00A0B0,
+  "primary-dark": #14505B,
+  "footer": #F8F8F8,
+  "tags": #14505B,
+  "utility-footer": #3A3A3A,
+  "error": #e65454,
+  "error-dark": #d7065e,
+);
+
+$font-colors: (
+  "text-dark": #474747,
+  "text-light": #6E6E6E,
+);
+
+$button-colors: (
+  "fill-background": map-get($colors, "white"),
+  "fill-color": map-get($brand-colors, "primary"),
+  "ghost-border": map-get($colors, "white"),
+  "ghost-color": map-get($colors, "white"),
+  "ghost-gift-list": #cdcdcd,
+  "slider-button-background": #696969
+);
+
+$form-colors: (
+  "fill-background": map-get($colors, "black"),
+  "fill-background-invalid": #e2cdcd,
+  "fill-background-valid": #e2ecdc,
+  "fill-color": map-get($colors, "white"),
+  "fill-placeholder": map-get($colors, "white"),
+  "ghost-border": map-get($colors, "black"),
+  "ghost-border-invalid": #c18888,
+  "ghost-border-valid": #7ac94b,
+  "ghost-color": map-get($colors, "black"),
+  "ghost-placeholder": map-get($colors, "black"),
+);
+
+
+$page-colors: (
+  "page-background": map-get($colors, "white"),
+  "page-color": map-get($colors, "black"),
+  "content-divider": #CFD8DC,
+  "option-divider": #F2F2F2,
+  "button-divider": #94a8b1,
+);
+

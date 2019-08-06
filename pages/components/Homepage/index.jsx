@@ -20,7 +20,7 @@ class HomePage extends Component {
     const { title } = this.props;
 
     return (
-      <h1>
+      <h1 className="Homepage">
         {title}
       </h1>
     )

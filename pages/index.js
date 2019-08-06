@@ -3,6 +3,8 @@ import React from "react";
 import Head from 'next/head';
 import Homepage from './Components/Homepage';
 
+import '/Users/sarahdonoghue/Documents/Projects/wellness-events-app/assets/scss/style.scss';
+
 const App = () => (
   <div>
     <Head>

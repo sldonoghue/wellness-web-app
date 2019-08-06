@@ -1,0 +1,19 @@
+@function duration($multiple: 1) {
+  @if type-of($multiple) != number {
+    @return error("#{$multiple} is not a number");
+  }
+
+  @if not variable-exists(helpers) {
+    @return error("$helpers does not exist");
+  } @else if not map-has-key($helpers, "duration") {
+    @return error("$helpers > 'duration' does not exist");
+  }
+
+  $duration: map-get($helpers, "duration");
+
+  @if type-of($duration) != number or unit($duration) != ms {
+    @return error("$helpers > 'duration' (#{$duration}) is not a duration in ms");
+  }
+
+  @return $multiple * $duration;
+}
