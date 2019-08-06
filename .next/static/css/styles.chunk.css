@@ -1,0 +1,115 @@
+.Component {
+  margin-top: 4rem;
+  overflow-x: hidden; }
+  .Component:first-child {
+    margin-top: 0; }
+  .Root > .Component:first-child {
+    margin-top: 4rem; }
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  border: none;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+html {
+  height: 100%; }
+
+body {
+  position: relative;
+  min-height: 100%;
+  background-color: #fff; }
+
+figure {
+  display: block;
+  margin: 0; }
+
+img {
+  max-width: 100%; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent; }
+  table td,
+  table th {
+    padding: 0; }
+
+@media screen and (min-width: 1024px) {
+  .no-scroll-desktop {
+    overflow: hidden; } }
+
+@media screen and (max-width: 1023px) {
+  .no-scroll-tablet {
+    overflow: hidden; } }
+
+@media screen and (max-width: 767px) {
+  .no-scroll-mobile {
+    overflow: hidden; } }
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+html {
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: TurquoiseBody, Arial, sans-serif;
+  color: #474747; }
+  @media screen and (min-width: 0) and (max-width: 479px) {
+    html {
+      font-size: 15px; } }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    html {
+      font-size: 15px; } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    html {
+      font-size: 16px; } }
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    html {
+      font-size: 16px; } }
+  @media screen and (min-width: 1440px) {
+    html {
+      font-size: 16px; } }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0; }
+
+p {
+  margin-bottom: 1rem; }
+  p:last-child {
+    margin-bottom: 0; }
+
+@font-face {
+  font-family: "TurquoiseBody";
+  font-weight: normal;
+  src: url("/dist/fonts/37E939_0.woff") format("opentype");
+  font-style: normal; }
+
+@font-face {
+  font-family: "TurquoiseBody";
+  font-weight: normal;
+  src: url("/dist/fonts/37E939_0.woff2") format("opentype");
+  font-style: normal; }
+
+.Homepage {
+  color: red; }
+  @media screen and (max-width: 1023px) {
+    .Homepage {
+      color: blue; } }
+  @media screen and (max-width: 479px) {
+    .Homepage {
+      color: green; } }
+
+
+/*# sourceMappingURL=styles.chunk.css.map*/

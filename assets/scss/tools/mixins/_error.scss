@@ -1,0 +1,4 @@
+@mixin error($message: null) {
+  @warn $message;
+  @error $message;
+}

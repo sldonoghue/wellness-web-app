@@ -1,0 +1,11 @@
+.Homepage {
+  color: red;
+
+  @include below(desktop) {
+    color: blue;
+  }
+
+  @include below(mobile-large) {
+    color: green
+  }
+}

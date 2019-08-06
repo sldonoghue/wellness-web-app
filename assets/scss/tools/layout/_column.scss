@@ -1,0 +1,9 @@
+@mixin column($fraction: 1) {
+  @if type-of($fraction) != number or not unitless($fraction) {
+    @include error("#{$fraction} is not a unitless number");
+  }
+
+  // Column styles
+  flex: 0 0 auto;
+  width: percentage($fraction);
+}

@@ -1,0 +1,19 @@
+@function spacing($multiple: 1) {
+  @if type-of($multiple) != number {
+    @return error("'#{$multiple}' is not a number");
+  }
+
+  @if not variable-exists(helpers) {
+    @return error("$helpers does not exist");
+  } @else if not map-has-key($helpers, "spacing") {
+    @return error("$helpers > 'spacing' does not exist");
+  }
+
+  $spacing: map-get($helpers, "spacing");
+
+  @if type-of($spacing) != number or unit($spacing) != rem {
+    @return error("$helpers > 'spacing' (#{$spacing}) is not a length in rem");
+  }
+
+  @return $multiple * $spacing;
+}
