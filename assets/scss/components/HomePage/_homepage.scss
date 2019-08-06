@@ -1,11 +1,56 @@
 .Homepage {
-  color: red;
-
-  @include below(desktop) {
-    color: blue;
+  &_container {
+    position: relative;
+    height: 54.5rem;
+    width: 100%;
   }
 
-  @include below(mobile-large) {
-    color: green
+  &_heroImage {
+    position: relative;
+    height: 100%;
+    background-color: grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: map-get($colors, "white");
+    text-align: center;
+  }
+
+  &_bannerTitle {
+    @include heading-one;
+  }
+
+  &_subtext {
+    @include heading-three;
+    margin-top: 2rem;
+  }
+
+  &_jumpLink {
+    height: 30px;
+    width: 30px;
+    margin-top: 2rem;
+    border-right: 6px solid white; 
+    border-bottom: 6px solid white;
+    background: none;
+    transform: rotate(-314deg);
+  }
+
+  &_section {
+    @include component-spacing;
+    @include container;
+    position: relative;
+  }
+
+  &_pageTitle {
+    @include heading-two;
+    @include title-divider;
+    text-align: center;
   }
 }
