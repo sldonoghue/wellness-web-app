@@ -42,8 +42,12 @@
   &_button {
     height: 3rem;
     padding: 0.8rem 2rem;
-    background-color: map-get($brand-colors, "primary");
+    background-color: map-get($brand-colors, "primary-dark");
     color: map-get($colors, "white");
     font-size: 0.85rem;
+
+    &:hover {
+      background-color: map-get($brand-colors, "primary-active");
+    }
   }
 }

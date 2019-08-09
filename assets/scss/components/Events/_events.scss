@@ -1,0 +1,28 @@
+.Events {
+  &_bannerContainer {
+    position: relative;
+    height: 54.5rem;
+    width: 100%;
+  }
+
+  &_heroImage {
+    position: relative;
+    height: 100%;
+    background-color: grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    color: map-get($colors, "white");
+    text-align: center;
+  }
+
+  &_bannerTitle {
+    @include heading-one;
+  }
+}

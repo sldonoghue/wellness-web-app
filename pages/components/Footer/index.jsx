@@ -1,5 +1,5 @@
 import exact from 'prop-types-exact';
-import React, { Component } from 'react';
+import React from 'react';
 
 function Footer(props) {
 
