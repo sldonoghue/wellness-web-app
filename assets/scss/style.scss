@@ -45,7 +45,11 @@
 
 @import './atoms/button';
 
+@import './components/Events/events';
+
 @import './components/Footer/footer';
 
 @import './components/HomePage/homepage';
 @import './components/HomePage/image-split';
+
+@import './components/Navigation/navigation';

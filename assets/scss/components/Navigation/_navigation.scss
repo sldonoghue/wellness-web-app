@@ -1,0 +1,20 @@
+.Navigation {
+  width: 100%;
+  overflow: hidden;
+
+  &_container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 2rem;
+    background-color: map-get($brand-colors, "primary-dark");
+    color: map-get($colors, "white");
+    opacity: 0.85;
+  }
+
+  &_link {
+    color: map-get($colors, "white");
+  }
+}
