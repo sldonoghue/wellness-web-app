@@ -1,0 +1,120 @@
+.Button {
+  $root: &;
+  $loadingSize: map-get($button, "height") / 2;
+  // @include reset-button;
+  @include ellipsis;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: map-get($button, "height");
+  padding: 0 map-get($button, "padding");
+  font-size: map-get($button, "font-size-large");
+  font-weight: 800;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+
+  &-ghost {
+    border: map-get($button, "border-width") solid map-get($button-colors, "ghost-border");
+    line-height: calc(#{map-get($button, "height")} - #{map-get($button, "border-width") * 2});
+    color: map-get($button-colors, "ghost-color");
+
+    #{$root}_loadingItem {
+      border-color:  map-get($button-colors, "fill-background") transparent transparent transparent;
+    }
+
+    &:hover {
+      background-color: lighten(map-get($button-colors, "fill-background"), 2%);
+      border-color: map-get($button-colors, "ghost-border");
+      color: map-get($button-colors, "fill-color");
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &-fill {
+    line-height: map-get($button, "height");
+    color: map-get($colors, "white");
+    background-color: map-get($brand-colors, "primary");
+
+    &:hover {
+      background-color: lighten(map-get($button-colors, "fill-background"), 5%);
+    }
+  }
+
+  &.loading {
+    padding: 0 5rem 0 3rem;
+
+    #{$root}_loading {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &_text {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  &_loading {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 2.5rem;
+    width: $loadingSize;
+    height: $loadingSize;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &_loadingItem {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: $loadingSize;
+    height: $loadingSize;
+    border: 2px solid  map-get($colors, "white");
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: map-get($colors, "white") transparent transparent transparent;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+
+  & &_icon {
+    font-size: 1.25rem;
+    vertical-align: sub;
+    margin-right: 0.5rem;
+    fill: currentColor;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

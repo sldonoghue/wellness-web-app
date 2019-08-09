@@ -1,5 +1,6 @@
 import React from "react";
 // try import * from components
+import Footer from './components/Footer';
 import Head from 'next/head';
 import Homepage from './Components/Homepage';
 
@@ -11,9 +12,8 @@ const App = () => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
     </Head>
-    <div>
-      <Homepage />
-    </div>
+    <Homepage />
+    <Footer />
   </div>
 )
 
