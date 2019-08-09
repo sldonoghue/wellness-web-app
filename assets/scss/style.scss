@@ -43,4 +43,9 @@
 @import './base/page';
 @import './base/typography';
 
+@import './atoms/button';
+
+@import './components/Footer/footer';
+
 @import './components/HomePage/homepage';
+@import './components/HomePage/image-split';

@@ -102,6 +102,111 @@ p {
   src: url("/dist/fonts/37E939_0.woff2") format("opentype");
   font-style: normal; }
 
+.Button {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: 3rem;
+  padding: 0 2rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out; }
+  .Button-ghost {
+    border: 2px solid #fff;
+    line-height: calc(3rem - 4px);
+    color: #fff; }
+    .Button-ghost .Button_loadingItem {
+      border-color: #fff transparent transparent transparent; }
+    .Button-ghost:hover {
+      background-color: white;
+      border-color: #fff;
+      color: #00B6C8; }
+    .Button-ghost.disabled {
+      opacity: 0.5;
+      cursor: not-allowed; }
+  .Button-fill {
+    line-height: 3rem;
+    color: #fff;
+    background-color: #00B6C8; }
+    .Button-fill:hover {
+      background-color: white; }
+  .Button.loading {
+    padding: 0 5rem 0 3rem; }
+    .Button.loading .Button_loading {
+      visibility: visible;
+      opacity: 1; }
+  .Button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed; }
+  .Button_text {
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .Button_loading {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden; }
+  .Button_loadingItem {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent; }
+    .Button_loadingItem:nth-child(1) {
+      animation-delay: -0.45s; }
+    .Button_loadingItem:nth-child(2) {
+      animation-delay: -0.3s; }
+    .Button_loadingItem:nth-child(3) {
+      animation-delay: -0.15s; }
+  .Button .Button_icon {
+    font-size: 1.25rem;
+    vertical-align: sub;
+    margin-right: 0.5rem;
+    fill: currentColor; }
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.Footer {
+  position: relative; }
+  .Footer_container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #14505B; }
+  .Footer_list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+    padding: 0 6.5rem; }
+  .Footer_link {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    list-style: none; }
+
 .Homepage_container {
   position: relative;
   height: 54.5rem;
@@ -185,10 +290,16 @@ p {
       padding-left: 2rem;
       padding-right: 2rem; } }
 
+.Homepage_sectionContent {
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto; }
+
 .Homepage_pageTitle {
   font-size: 2rem;
   font-family: Playfair Display, serif;
   font-weight: 400;
+  position: relative;
   text-align: center; }
   @media screen and (max-width: 767px) {
     .Homepage_pageTitle {
@@ -201,6 +312,51 @@ p {
     bottom: -2rem;
     left: calc(50% - 30px);
     border-bottom: 2px solid #00B6C8; }
+
+.Homepage_text {
+  margin-top: 5rem;
+  font-size: 1.2rem; }
+
+.Homepage + .Footer {
+  padding-top: 8rem; }
+
+.ImageSplit {
+  margin-top: 4rem;
+  margin-bottom: 5rem; }
+  .ImageSplit:first-child {
+    margin-top: 0; }
+  .Root > .ImageSplit:first-child {
+    margin-top: 4rem; }
+  .ImageSplit_container {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 -2rem; }
+  .ImageSplit_item {
+    flex: 0 0 auto;
+    width: 50%;
+    padding: 0 1rem; }
+  .ImageSplit_image {
+    height: 500px;
+    background: grey; }
+  .ImageSplit_textContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center; }
+  .ImageSplit_title {
+    font-size: 2rem;
+    font-family: Playfair Display, serif;
+    font-weight: 400;
+    margin-top: 3rem; }
+    @media screen and (max-width: 767px) {
+      .ImageSplit_title {
+        font-size: 1.7rem; } }
+  .ImageSplit_innerText {
+    margin-top: 1.5rem;
+    font-size: 1.2rem; }
+  .ImageSplit_actions {
+    margin-top: 3rem;
+    width: 100%;
+    flex: 0 0 auto; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

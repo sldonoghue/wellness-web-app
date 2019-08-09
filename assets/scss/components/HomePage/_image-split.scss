@@ -1,0 +1,41 @@
+.ImageSplit {
+  @include component-spacing;
+  margin-bottom: 5rem;
+
+  &_container {
+    @include row;
+    margin: 0 -2rem;
+  }
+
+  &_item {
+    @include column(1 / 2);
+    padding: 0 1rem;
+  }
+
+  &_image {
+    height: 500px;
+    background: grey;
+  }
+
+  &_textContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  &_title {
+    @include heading-two;
+    margin-top: 3rem;
+  }
+
+  &_innerText {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  &_actions {
+    margin-top: 3rem;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}

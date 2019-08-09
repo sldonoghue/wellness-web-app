@@ -48,9 +48,24 @@
     position: relative;
   }
 
+  &_sectionContent {
+    @include text-width;
+  }
+
   &_pageTitle {
     @include heading-two;
     @include title-divider;
+    position: relative;
     text-align: center;
+  }
+
+  &_text {
+    margin-top: 5rem;
+    color: map-get($colors, "text-dark");
+    font-size: 1.2rem;
+  }
+
+  & + .Footer {
+    padding-top: 8rem;
   }
 }
