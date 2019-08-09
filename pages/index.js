@@ -3,7 +3,6 @@ import React from "react";
 import Footer from './components/Footer';
 import Head from 'next/head';
 import Homepage from './Components/Homepage';
-import Events from './components/Events';
 
 import '/Users/sarahdonoghue/Documents/Projects/wellness-events-app/assets/scss/style.scss';
 

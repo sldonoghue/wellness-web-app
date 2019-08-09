@@ -35,12 +35,11 @@ function ImageSplit(props) {
             {innerText}
           </div>
           <div className="ImageSplit_actions">
-            <Button
-              elementType="button"
-              modifier="fill"
-              text={buttonText}
-              handleClick={handlePageClick}
-            />
+            <Link href='/events'>
+              <a className="Button ImageSplit_button">
+                {buttonText}
+              </a>
+            </Link>
           </div>
         </div>
         <div className="ImageSplit_item">

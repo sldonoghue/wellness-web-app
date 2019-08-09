@@ -9,7 +9,7 @@ const propTypes = exact({
   blockName: PropTypes.string,
   buttonType: PropTypes.string,
   elementType: PropTypes.oneOf(['button', 'link']),
-  handleClick: requireIf(PropTypes.func, props => props.elementType === 'button'),
+  handleClick: PropTypes.func,
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   modifier: PropTypes.string,

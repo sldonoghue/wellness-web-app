@@ -357,6 +357,12 @@ p {
     margin-top: 3rem;
     width: 100%;
     flex: 0 0 auto; }
+  .ImageSplit_button {
+    height: 3rem;
+    padding: 0.8rem 2rem;
+    background-color: #00B6C8;
+    color: #fff;
+    font-size: 0.85rem; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/
