@@ -45,6 +45,8 @@
 
 @import './atoms/button';
 
+@import './components/EventSearch/event-search';
+
 @import './components/Events/events';
 
 @import './components/Footer/footer';
@@ -54,3 +56,7 @@
 @import './components/HomePage/inspiration';
 
 @import './components/Navigation/navigation';
+
+@import '../../node_modules/react-day-picker/lib/style.css';
+
+// @import "../node_modules/react-day-picker/lib/style"

@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -134,6 +134,36 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/define-proper
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptor */ "core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 /***/ }),
 
@@ -766,104 +796,257 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types-exact */ "prop-types-exact");
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types-exact */ "prop-types-exact");
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_day_picker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-day-picker */ "react-day-picker");
+/* harmony import */ var react_day_picker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_day_picker__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-places-autocomplete */ "react-places-autocomplete");
+/* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6__);
+
 var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/components/EventSearch/index.jsx";
 
 
 
+
+
+
+ // https://react-day-picker.js.org/examples/selected-range-enter
+
 const propTypes = {
-  dateLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
-  locationLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+  dateLabel: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  locationLabel: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  searchButtonText: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string
 };
 const defaultProps = {
   dateLabel: 'When',
-  locationLabel: 'From'
+  locationLabel: 'City',
+  searchButtonText: 'Search'
 };
 
-class EventSearch extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
+class EventSearch extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   constructor(props) {
     super(props);
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleSelectingFirstDay", (from, to, day) => {
+      const isBeforeFirstDay = from && react_day_picker__WEBPACK_IMPORTED_MODULE_4__["DateUtils"].isDayBefore(day, from);
+      const isRangeSelected = from && to;
+      return !from || isBeforeFirstDay || isRangeSelected;
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleDayClick", day => {
+      const {
+        from,
+        to
+      } = this.state;
+
+      if (from && to && day >= from && day <= to) {
+        this.handleResetClick();
+        return;
+      }
+
+      if (this.handleSelectingFirstDay(from, to, day)) {
+        this.setState({
+          from: day,
+          to: null,
+          enteredTo: null
+        });
+      } else {
+        this.setState({
+          to: day,
+          enteredTo: day,
+          selectedDates: `${moment__WEBPACK_IMPORTED_MODULE_5___default()(from).format('DD/MM/YYYY')} - ${moment__WEBPACK_IMPORTED_MODULE_5___default()(day).format('DD/MM/YYYY')}`
+        });
+      }
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleDayMouseEnter", day => {
+      let {
+        from,
+        to
+      } = this.state;
+
+      if (!this.handleSelectingFirstDay(from, to, day)) {
+        this.setState({
+          enteredTo: day
+        });
+      }
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleResetClick", () => {
+      const {
+        enteredTo,
+        to,
+        from
+      } = this.state;
+      this.setState({
+        enteredTo: null,
+        from: null,
+        to: null
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleDatePicker", () => {
+      const {
+        activeDatePicker
+      } = this.state;
+      this.setState({
+        activeDatePicker: !activeDatePicker
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleLocationChange", locationValue => {
+      this.setState({
+        locationValue
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleSelect", locationValue => {
+      Object(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6__["geocodeByAddress"])(locationValue).then(results => Object(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6__["getLatLng"])(results[0])).then(latLng => console.log('Success', latLng)).catch(error => console.error('Error', error));
+    });
+
     this.state = {
-      endDate: '',
-      location: '',
-      startDate: ''
+      activeDatePicker: false,
+      city: '',
+      locationValue: '',
+      enteredTo: null,
+      from: null,
+      selectedDates: 'Anytime',
+      to: null
     };
   }
 
   render() {
     const {
       dateLabel,
-      locationLabel
+      locationLabel,
+      searchButtonText
     } = this.props;
-    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    const {
+      activeDatePicker,
+      enteredTo,
+      from,
+      locationValue,
+      selectedDates,
+      to
+    } = this.state;
+    const modifiers = {
+      start: from,
+      end: enteredTo
+    };
+    const disabledDays = {
+      before: from
+    };
+    const selectedDays = [from, {
+      from,
+      to: enteredTo
+    }];
+    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 118
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 119
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_searchBar",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 120
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_searchFilter",
+      onClick: this.handleDatePicker,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 121
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 122
       },
       __self: this
-    }, locationLabel), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, dateLabel), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_value",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 125
       },
       __self: this
-    })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, selectedDates)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+      className: activeDatePicker ? 'EventSearch_datePicker EventSearch_datePicker-active' : 'EventSearch_datePicker',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 129
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_day_picker__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      className: "EventSearch_date",
+      numberOfMonths: 2,
+      fromMonth: from,
+      selectedDays: selectedDays,
+      disabledDays: disabledDays,
+      modifiers: modifiers,
+      onDayClick: this.handleDayClick,
+      onDayMouseEnter: this.handleDayMouseEnter,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 130
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_searchFilter",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 142
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "EventSearch_label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 143
       },
       __self: this
-    }, dateLabel), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "EventSearch_value",
+    }, locationLabel)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+      className: "EventSearch_action",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 184
       },
       __self: this
-    })))));
+    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
+      type: "button",
+      className: "EventSearch_button",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 185
+      },
+      __self: this
+    }, searchButtonText)))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("h1", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 191
+      },
+      __self: this
+    }, " Events Page"));
   }
 
 }
@@ -1143,7 +1326,7 @@ Events.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!********************************!*\
   !*** multi ./pages/events.jsx ***!
   \********************************/
@@ -1196,6 +1379,17 @@ module.exports = require("core-js/library/fn/object/define-property");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "moment":
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
 
 /***/ }),
 
@@ -1273,6 +1467,28 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-day-picker":
+/*!***********************************!*\
+  !*** external "react-day-picker" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-day-picker");
+
+/***/ }),
+
+/***/ "react-places-autocomplete":
+/*!********************************************!*\
+  !*** external "react-places-autocomplete" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-places-autocomplete");
 
 /***/ }),
 

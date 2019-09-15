@@ -185,6 +185,56 @@ p {
   100% {
     transform: rotate(360deg); } }
 
+.EventSearch_container {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+.EventSearch_searchBar {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 50%;
+  background: lightblue; }
+
+.EventSearch_searchFilter {
+  display: flex;
+  flex-flow: column;
+  padding: 0 1rem;
+  width: 100%; }
+  .EventSearch_searchFilter + .EventSearch_searchFilter {
+    border-left: 1px solid grey; }
+
+.EventSearch_label {
+  color: #474747;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase; }
+
+.EventSearch_value {
+  height: 1.5rem;
+  border-bottom: 1px solid grey;
+  font-size: 1.125rem; }
+
+.EventSearch_datePicker {
+  display: none; }
+  .EventSearch_datePicker-active {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    margin: 3rem -1rem;
+    background-color: #fff;
+    box-shadow: 5px 5px 10px grey; }
+
+.EventSearch_date .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+  background-color: #f0f8ff !important;
+  color: #4a90e2; }
+
+.EventSearch_date .DayPicker-Day {
+  border-radius: 0 !important; }
+
 .Events_bannerContainer {
   position: relative;
   height: 54.5rem;
