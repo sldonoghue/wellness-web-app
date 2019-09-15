@@ -1065,6 +1065,90 @@ ImageSplit.defaultProps = defaultProps;
 
 /***/ }),
 
+/***/ "./pages/Components/Homepage/Inspiration.jsx":
+/*!***************************************************!*\
+  !*** ./pages/Components/Homepage/Inspiration.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types-exact */ "prop-types-exact");
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/Components/Homepage/Inspiration.jsx";
+
+
+
+const propTypes = {
+  blogPosts: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array.isRequired,
+  title: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+};
+
+function Inspiration(props) {
+  const {
+    blogPosts,
+    title
+  } = props;
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: "Inspiration",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: "Inspiration_container",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
+    className: "Inspiration_title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: this
+  }, title), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: "Inspiration_content",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, blogPosts && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, blogPosts.slice(0, 9).map((item, index) => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    className: "Inspiration_imageContainer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+    className: "Inspiration_image",
+    href: item.image_permalink,
+    target: "_blank",
+    style: {
+      backgroundImage: `url(${item.photos[0].original_size.url})`
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  })))))));
+}
+
+Inspiration.propTypes = propTypes;
+/* harmony default export */ __webpack_exports__["default"] = (Inspiration);
+
+/***/ }),
+
 /***/ "./pages/Components/Homepage/index.jsx":
 /*!*********************************************!*\
   !*** ./pages/Components/Homepage/index.jsx ***!
@@ -1082,18 +1166,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _ImageSplit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ImageSplit */ "./pages/Components/Homepage/ImageSplit.jsx");
+/* harmony import */ var _Inspiration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Inspiration */ "./pages/Components/Homepage/Inspiration.jsx");
 
 var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/Components/Homepage/index.jsx";
 
 
 
 
+
 const propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default()({
+  accessToken: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
+  tumblrApi: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
   pageTitle: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
   subtext: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
   title: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string
 });
 const defaultProps = {
+  accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
+  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=wellnessLifestyle',
   introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
   pageTitle: 'Page Title',
   subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
@@ -1104,8 +1194,24 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
   constructor(props) {
     super(props);
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "getPosts", () => {
+      const {
+        accessToken,
+        tumblrApi
+      } = this.props;
+      let blogPhotos = [];
+      fetch(`${tumblrApi}&api_key=${accessToken}`).then(response => response.json()).then(data => {
+        let blogs = data.response;
+        blogs.forEach((blog, index) => {
+          if (blog.type === "photo") blogPhotos.push(blog);
+        });
+        this.setState({
+          blogPosts: blogPhotos
+        });
+      });
+    });
+
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleJumpLink", () => {
-      debugger;
       this.scrollTo.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
@@ -1117,6 +1223,13 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
     });
 
     this.scrollTo = react__WEBPACK_IMPORTED_MODULE_3___default.a.createRef();
+    this.state = {
+      blogPosts: []
+    };
+  }
+
+  componentDidMount() {
+    this.getPosts();
   }
 
   render() {
@@ -1126,46 +1239,49 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       subtext,
       title
     } = this.props;
+    const {
+      blogPosts
+    } = this.state;
     return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 70
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 71
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_heroImage",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 72
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_content",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44
+        lineNumber: 73
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("h1", {
       className: "Homepage_bannerTitle",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 74
       },
       __self: this
     }, title), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_subtext",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 77
       },
       __self: this
     }, subtext), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
@@ -1173,7 +1289,7 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       onClick: this.handleJumpLink,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 80
       },
       __self: this
     }))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
@@ -1181,35 +1297,43 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       ref: this.scrollTo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 83
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_sectionContent",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
+        lineNumber: 84
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("h2", {
       className: "Homepage_pageTitle",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56
+        lineNumber: 85
       },
       __self: this
     }, pageTitle), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 88
       },
       __self: this
     }, introText)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_ImageSplit__WEBPACK_IMPORTED_MODULE_4__["default"], {
       handlePageClick: this.handlePageClick,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 92
+      },
+      __self: this
+    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Inspiration__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      blogPosts: blogPosts,
+      title: "#Wellness",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 95
       },
       __self: this
     })));

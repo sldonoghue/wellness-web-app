@@ -1,0 +1,72 @@
+.Inspiration {
+  @include component-spacing;
+
+  &_container {
+    @include container;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &_title {
+    @include heading-two;
+  }
+
+  &_content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &_imageContainer {
+    overflow: hidden;
+    width: 25%;
+    height: 20rem;
+    margin: 2rem;
+    background: lightblue;
+
+    @include below(desktop) {
+      width: 40%;
+      height: 15rem;
+      padding: 0;
+    }
+
+    @include below(tablet) {
+      width: 100%;
+    }
+  }
+
+  &_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform .5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+   
+  }
+
+  // &_imageContainer {
+  //   @include column ( 1 / 4);
+  //   display: block;
+  //   height: 5rem;
+  //   background: lightblue;
+  // }
+
+  // &_image {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: grey;
+  //   background-position: center;
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+    
+  // }
+}
