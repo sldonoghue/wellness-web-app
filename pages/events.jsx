@@ -2,6 +2,7 @@ import exact from 'prop-types-exact';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import EventSearch from './components/EventSearch';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 
@@ -21,7 +22,7 @@ class Events extends Component {
   render() {
     const { title } = this.props;
 
-    return(
+    return (
       <React.Fragment>
         <div className="Events">
         <Navigation />
@@ -33,6 +34,7 @@ class Events extends Component {
               </h1>
             </div>
           </div>
+          <EventSearch />
         </div>
         <Footer />
       </React.Fragment>

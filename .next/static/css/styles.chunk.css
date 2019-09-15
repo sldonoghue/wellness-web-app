@@ -359,17 +359,31 @@ p {
     display: flex;
     flex-flow: row wrap;
     margin: 0 -2rem; }
+    @media screen and (max-width: 767px) {
+      .ImageSplit_container {
+        flex-flow: column;
+        margin: 0; } }
   .ImageSplit_item {
     flex: 0 0 auto;
     width: 50%;
     padding: 0 1rem; }
+    @media screen and (max-width: 767px) {
+      .ImageSplit_item {
+        width: 100%;
+        padding: 0; } }
   .ImageSplit_image {
     height: 500px;
     background: grey; }
+    @media screen and (max-width: 767px) {
+      .ImageSplit_image {
+        order: 1; } }
   .ImageSplit_textContainer {
     display: flex;
     flex-flow: column;
     justify-content: center; }
+    @media screen and (max-width: 767px) {
+      .ImageSplit_textContainer {
+        order: 2; } }
   .ImageSplit_title {
     font-size: 2rem;
     font-family: Playfair Display, serif;
@@ -393,6 +407,81 @@ p {
     font-size: 0.85rem; }
     .ImageSplit_button:hover {
       background-color: #00A0B0; }
+
+.Inspiration {
+  margin-top: 4rem; }
+  .Inspiration:first-child {
+    margin-top: 0; }
+  .Root > .Inspiration:first-child {
+    margin-top: 4rem; }
+  .Inspiration_container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center; }
+    @media screen and (min-width: 0) and (max-width: 479px) {
+      .Inspiration_container {
+        max-width: none;
+        padding-left: 1rem;
+        padding-right: 1rem; } }
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+      .Inspiration_container {
+        max-width: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem; } }
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      .Inspiration_container {
+        max-width: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem; } }
+    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+      .Inspiration_container {
+        max-width: none;
+        padding-left: 2rem;
+        padding-right: 2rem; } }
+    @media screen and (min-width: 1440px) {
+      .Inspiration_container {
+        max-width: 1600px;
+        padding-left: 2rem;
+        padding-right: 2rem; } }
+  .Inspiration_title {
+    font-size: 2rem;
+    font-family: Playfair Display, serif;
+    font-weight: 400; }
+    @media screen and (max-width: 767px) {
+      .Inspiration_title {
+        font-size: 1.7rem; } }
+  .Inspiration_content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%; }
+  .Inspiration_imageContainer {
+    overflow: hidden;
+    width: 25%;
+    height: 20rem;
+    margin: 2rem;
+    background: lightblue; }
+    @media screen and (max-width: 1023px) {
+      .Inspiration_imageContainer {
+        width: 40%;
+        height: 15rem;
+        padding: 0; } }
+    @media screen and (max-width: 767px) {
+      .Inspiration_imageContainer {
+        width: 100%; } }
+  .Inspiration_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform .5s ease; }
+    .Inspiration_image:hover {
+      transform: scale(1.1); }
 
 .Navigation {
   width: 100%;

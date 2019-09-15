@@ -5,22 +5,40 @@
   &_container {
     @include row;
     margin: 0 -2rem;
+
+    @include below(tablet) {
+      flex-flow: column;
+      margin: 0;
+    }
   }
 
   &_item {
     @include column(1 / 2);
     padding: 0 1rem;
+
+    @include below(tablet) {
+      width: 100%;
+      padding: 0;
+    }
   }
 
   &_image {
     height: 500px;
     background: grey;
+
+    @include below(tablet) {
+      order: 1;
+    }
   }
 
   &_textContainer {
     display: flex;
     flex-flow: column;
     justify-content: center;
+
+    @include below(tablet) {
+      order: 2;
+    }
   }
 
   &_title {

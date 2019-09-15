@@ -757,6 +757,123 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 /***/ }),
 
+/***/ "./pages/components/EventSearch/index.jsx":
+/*!************************************************!*\
+  !*** ./pages/components/EventSearch/index.jsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types-exact */ "prop-types-exact");
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/components/EventSearch/index.jsx";
+
+
+
+const propTypes = {
+  dateLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string,
+  locationLabel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string
+};
+const defaultProps = {
+  dateLabel: 'When',
+  locationLabel: 'From'
+};
+
+class EventSearch extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
+  constructor(props) {
+    super(props);
+    this.state = {
+      endDate: '',
+      location: '',
+      startDate: ''
+    };
+  }
+
+  render() {
+    const {
+      dateLabel,
+      locationLabel
+    } = this.props;
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_container",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_searchBar",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_searchFilter",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_label",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
+      },
+      __self: this
+    }, locationLabel), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_value",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_searchFilter",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_label",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42
+      },
+      __self: this
+    }, dateLabel), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventSearch_value",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    })))));
+  }
+
+}
+
+EventSearch.propTypes = propTypes;
+EventSearch.defaultProps = defaultProps;
+/* harmony default export */ __webpack_exports__["default"] = (EventSearch);
+
+/***/ }),
+
 /***/ "./pages/components/Footer/index.jsx":
 /*!*******************************************!*\
   !*** ./pages/components/Footer/index.jsx ***!
@@ -930,9 +1047,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Footer */ "./pages/components/Footer/index.jsx");
-/* harmony import */ var _components_Navigation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Navigation */ "./pages/components/Navigation/index.jsx");
+/* harmony import */ var _components_EventSearch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/EventSearch */ "./pages/components/EventSearch/index.jsx");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Footer */ "./pages/components/Footer/index.jsx");
+/* harmony import */ var _components_Navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Navigation */ "./pages/components/Navigation/index.jsx");
 var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/events.jsx";
+
 
 
 
@@ -957,54 +1076,60 @@ class Events extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 26
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "Events",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_Navigation__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_Navigation__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 28
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "Events_bannerContainer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 29
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "Events_heroImage",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 30
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "Events_content",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 31
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
       className: "Events_bannerTitle",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 32
       },
       __self: this
-    }, title)))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, title))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_EventSearch__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 37
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
       },
       __self: this
     }));
