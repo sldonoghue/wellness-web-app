@@ -1,0 +1,106 @@
+.EventSearch {
+  $root: &;
+
+  &_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &_searchBar {
+    position: absolute;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 50%;
+    background: map-get($colors, "white");
+    transform: translateY(-50%);
+    border: 1px solid map-get($colors, "grey");
+    border-radius: 5px;
+  }
+
+  &_searchFilter {
+    display: flex;
+    flex-flow: column; 
+    padding: 0 1rem;
+    width: 100%;
+
+    & + & {
+      border-left : 1px solid grey;
+    }
+  }
+
+  &_label {
+    color: map-get($font-colors, "text-dark");
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &_value {
+    height: 1.5rem;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    font-size: 1.125rem;
+  }
+
+  &_button {
+    background-color: map-get($brand-colors, "primary");
+    color: map-get($colors, "white");
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  &_datePicker {
+    display: none;
+
+    &-active {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      margin: 3rem -1rem;
+      background-color: map-get($colors, "white");
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    }
+  }
+
+  &_date {
+    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+      background-color: #f0f8ff !important;
+      color: #4a90e2;
+    }
+
+    .DayPicker-Day {
+      border-radius: 0 !important;
+    }
+  }
+
+  &_locationContainer {
+    position: absolute;
+    width: 50%;
+    margin-top: 0.4rem;
+    background-color: map-get($colors, "white");
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  }
+
+  &_suggestion {
+    font-size: 1.125rem;
+    padding: 0 0.5rem;
+
+    & + & {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &_resultsContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  &_title {
+    @include heading-two;
+  }
+}

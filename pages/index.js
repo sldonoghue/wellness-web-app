@@ -14,6 +14,7 @@ const App = () => (
     </Head>
     <Homepage />
     <Footer />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABNyDuLYeflwYvxCwU9CqTu1z3OH1ZYOQ&amp;libraries=places"></script>
   </div>
 )
 

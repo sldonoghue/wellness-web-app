@@ -185,6 +185,171 @@ p {
   100% {
     transform: rotate(360deg); } }
 
+.EventSearch_container {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+.EventSearch_searchBar {
+  position: absolute;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 50%;
+  background: #fff;
+  transform: translateY(-50%);
+  border: 1px solid #ccc;
+  border-radius: 5px; }
+
+.EventSearch_searchFilter {
+  display: flex;
+  flex-flow: column;
+  padding: 0 1rem;
+  width: 100%; }
+  .EventSearch_searchFilter + .EventSearch_searchFilter {
+    border-left: 1px solid grey; }
+
+.EventSearch_label {
+  color: #474747;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase; }
+
+.EventSearch_value {
+  height: 1.5rem;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  font-size: 1.125rem; }
+
+.EventSearch_button {
+  background-color: #00B6C8;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600; }
+
+.EventSearch_datePicker {
+  display: none; }
+  .EventSearch_datePicker-active {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    margin: 3rem -1rem;
+    background-color: #fff;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
+
+.EventSearch_date .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+  background-color: #f0f8ff !important;
+  color: #4a90e2; }
+
+.EventSearch_date .DayPicker-Day {
+  border-radius: 0 !important; }
+
+.EventSearch_locationContainer {
+  position: absolute;
+  width: 50%;
+  margin-top: 0.4rem;
+  background-color: #fff;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
+
+.EventSearch_suggestion {
+  font-size: 1.125rem;
+  padding: 0 0.5rem; }
+  .EventSearch_suggestion + .EventSearch_suggestion {
+    margin-top: 0.5rem; }
+
+.EventSearch_resultsContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 5rem; }
+
+.EventSearch_title {
+  font-size: 2rem;
+  font-family: Playfair Display, serif;
+  font-weight: 400; }
+  @media screen and (max-width: 767px) {
+    .EventSearch_title {
+      font-size: 1.7rem; } }
+
+.EventsResults_list {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  justify-content: center;
+  margin: 2rem 0;
+  list-style: none; }
+  @media screen and (min-width: 0) and (max-width: 479px) {
+    .EventsResults_list {
+      max-width: none;
+      padding-left: 1rem;
+      padding-right: 1rem; } }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    .EventsResults_list {
+      max-width: none;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem; } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .EventsResults_list {
+      max-width: none;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem; } }
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .EventsResults_list {
+      max-width: none;
+      padding-left: 2rem;
+      padding-right: 2rem; } }
+  @media screen and (min-width: 1440px) {
+    .EventsResults_list {
+      max-width: 1600px;
+      padding-left: 2rem;
+      padding-right: 2rem; } }
+
+.EventsResults_card {
+  flex: 0 0 auto;
+  width: 25%;
+  margin: 1rem;
+  color: #474747;
+  border: 1px solid #ccc; }
+
+.EventsResults_imageContainer {
+  overflow: hidden;
+  height: 12.5rem;
+  background: lightblue; }
+
+.EventsResults_image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.EventsResults_textContent {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding: 1rem;
+  min-height: 18rem;
+  color: black; }
+
+.EventsResults_title {
+  color: #14505B;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-transform: uppercase; }
+
+.EventsResults_details {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between; }
+
+.EventsResults_date, .EventsResults_price {
+  font-size: 0.85rem; }
+
 .Events_bannerContainer {
   position: relative;
   height: 54.5rem;

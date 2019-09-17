@@ -2,7 +2,6 @@ import exact from 'prop-types-exact';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-
 import ImageSplit from './ImageSplit';
 import Inspiration from './Inspiration';
 
@@ -16,7 +15,7 @@ const propTypes = exact({
 
 const defaultProps = {
   accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
-  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=wellnessLifestyle',
+  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=yogi',
   introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
   pageTitle: 'Page Title',
   subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
