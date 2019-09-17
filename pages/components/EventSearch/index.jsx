@@ -7,15 +7,21 @@ import moment from 'moment';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
 
+import EventsResults from './EventsResults';
+
 // https://react-day-picker.js.org/examples/selected-range-enter
 const propTypes = {
   dateLabel: PropTypes.string,
+  eventbriteApiKey: PropTypes.string,
+  eventbriteLink: PropTypes.string,
   locationLabel: PropTypes.string,
   searchButtonText: PropTypes.string,
 }
 
 const defaultProps = {
   dateLabel: 'When',
+  eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  eventbriteLink: 'https://www.eventbriteapi.com/v3/events/search/?',
   locationLabel: 'City',
   searchButtonText: 'Search',
 
@@ -28,14 +34,15 @@ class EventSearch extends Component {
     this.state = {
       activeDatePicker: false,
       city: '',
+      events: [],
       locationValue: '',
       enteredTo: null,
       from: null,
+      latLng: null,
       selectedDates: 'Anytime',
       to: null,
     }
   }
-
 
   handleSelectingFirstDay = (from, to, day) => {
     const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
@@ -93,23 +100,56 @@ class EventSearch extends Component {
   }
 
 
+  handleCloseDatePicker = () => {
+    this.setState({ activeDatePicker: false });
+  }
+
+
   handleLocationChange = (locationValue) => {
     this.setState({ locationValue });
   };
  
 
-  handleSelect = (locationValue) => {
+  handleLocationSelect = (locationValue) => {
+    let { latLng } = this.state;
+
     geocodeByAddress(locationValue)
       .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
+      .then(latLng => {
+        console.log('Success', latLng),
+        this.setState({latLng})
+      })
       .catch(error => console.error('Error', error));
+      this.setState({ locationValue});
   };
+
+  handleSearchEvents = () => {
+    const { from, enteredTo, events, latLng } = this.state;
+    const { eventbriteApiKey, eventbriteLink } = this.props;
+    
+    const fromDate = moment(from).format('YYYY-MM-DD');
+    const searchFromDate = `${fromDate}T00:00:01Z`;
+
+    const toDate = moment(enteredTo).format('YYYY-MM-DD');
+    const searchToDate = `${toDate}T00:00:01Z`;
+
+    let results = [];
+
+    fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=107&token=${eventbriteApiKey}`)
+    .then(response => {
+      return response.json();
+    }).then(data => {
+      //Need to loop through object to create correct child with no html object
+    })
+    // this.setState({events: results})
+    // debugger
+    // .catch(error => console.log('Error', error));
+  }
 
 
   render() {
-
     const { dateLabel, locationLabel, searchButtonText } = this.props;
-    const { activeDatePicker, enteredTo, from, locationValue, selectedDates, to } = this.state;
+    const { activeDatePicker, enteredTo, events, from, locationValue, selectedDates, to } = this.state;
     const modifiers = { start: from, end: enteredTo };
     const disabledDays = { before: from };
     const selectedDays = [from, { from, to: enteredTo }];
@@ -139,19 +179,17 @@ class EventSearch extends Component {
               />
             </div>
            
-            <div className="EventSearch_searchFilter">
+            <div className="EventSearch_searchFilter" onClick={this.handleCloseDatePicker}>
               <div className="EventSearch_label">
                 {locationLabel}
               </div>
-              {/* <ReactDependentScript
-                scripts={['https://maps.googleapis.com/maps/api/js?key=AIzaSyABNyDuLYeflwYvxCwU9CqTu1z3OH1ZYOQ&libraries=places']}
-              > */}
-                {/* <PlacesAutocomplete
+
+                <PlacesAutocomplete
                   value={locationValue}
                   onChange={this.handleLocationChange}
                   onSelect={this.handleLocationSelect}
                 >
-                {({ getInputProps, suggestions, getSuggestionItemsProps, loading }) => (
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                   <div>
                     <input
                       {...getInputProps({
@@ -163,11 +201,10 @@ class EventSearch extends Component {
                       {loading && <div> Loading...</div>}
                       {suggestions.map(suggestion => {
                         const className = suggestion.active ? 'EventSearch_suggestion EventSearch_suggestion-active' : 'EventSearch_suggestion';
-                        //Inline style to be changed
                         const style = suggestion.active ? { backgroundColor: '#fafafa', cursor: 'pointer' } : { backgroundColor: '#ffffff', cursor: 'pointer' };
                         return (
                           <div
-                            {...getSuggestionItemsProps(suggestion, {className, style})}
+                            {...getSuggestionItemProps(suggestion, {className, style})}
                           >
                             <span>
                               {suggestion.description}
@@ -178,17 +215,30 @@ class EventSearch extends Component {
                     </div>
                   </div>
                 )}
-                </PlacesAutocomplete> */}
-                {/* </ReactDependentScript> */}
+                </PlacesAutocomplete>
             </div>
             <div className="EventSearch_action">
-              <button type="button" className="EventSearch_button">
+              <button type="button" className="Button EventSearch_button" onClick={this.handleSearchEvents}>
                 {searchButtonText}
               </button>
             </div>
           </div>
         </div>
-        <h1> Events Page</h1>
+        {events.length === 0
+          && (
+            <div>Heading + Paragraph </div>
+          )}
+          {events.length > 0
+            && (
+              <>
+                <div>
+                  {`Wellness Events in ${locationValue}`}
+                </div>
+                <EventsResults
+                  items={events}
+                />
+              </>
+            )}
       </div>
     )
   }

@@ -191,13 +191,16 @@ p {
   width: 100%; }
 
 .EventSearch_searchBar {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   padding: 1rem;
   width: 50%;
-  background: lightblue; }
+  background: #fff;
+  transform: translateY(-50%);
+  border: 1px solid #ccc;
+  border-radius: 5px; }
 
 .EventSearch_searchFilter {
   display: flex;
@@ -215,8 +218,15 @@ p {
 
 .EventSearch_value {
   height: 1.5rem;
+  width: 100%;
   border-bottom: 1px solid grey;
   font-size: 1.125rem; }
+
+.EventSearch_button {
+  background-color: #00B6C8;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600; }
 
 .EventSearch_datePicker {
   display: none; }
@@ -226,7 +236,7 @@ p {
     display: block;
     margin: 3rem -1rem;
     background-color: #fff;
-    box-shadow: 5px 5px 10px grey; }
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
 
 .EventSearch_date .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
   background-color: #f0f8ff !important;
@@ -234,6 +244,18 @@ p {
 
 .EventSearch_date .DayPicker-Day {
   border-radius: 0 !important; }
+
+.EventSearch_locationContainer {
+  position: absolute;
+  width: 50%;
+  margin-top: 0.4rem;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); }
+
+.EventSearch_suggestion {
+  font-size: 1.125rem;
+  padding: 0 0.5rem; }
+  .EventSearch_suggestion + .EventSearch_suggestion {
+    margin-top: 0.5rem; }
 
 .Events_bannerContainer {
   position: relative;
