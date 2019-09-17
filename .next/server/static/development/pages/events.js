@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -835,7 +835,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/components/EventSearch/EventsResults.jsx";
+
 
 
 
@@ -852,12 +855,11 @@ class EventsResults extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
     const {
       items
     } = this.props;
-    debugger;
     return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", {
-      className: "EventsResults",
+      className: "EventsResults_list",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 20
       },
       __self: this
     }, items.map((item, index) => react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", {
@@ -865,7 +867,7 @@ class EventsResults extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       key: index,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 22
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
@@ -873,52 +875,76 @@ class EventsResults extends react__WEBPACK_IMPORTED_MODULE_2__["Component"] {
       target: "_blank",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 23
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "EventsResults_imageContainer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 24
       },
       __self: this
-    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "EventsResults_textConent",
+    }, item.logo != null && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("figure", {
+      className: "EventsResults_image",
+      style: {
+        backgroundImage: `url(${item.logo.url})`
+      },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
+      },
+      __self: this
+    })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventsResults_textContent",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "EventsResults_title",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 32
       },
       __self: this
-    }, item.name), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+    }, item.name.text), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
       className: "EventsResults_summary",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 35
       },
       __self: this
     }, item.summary), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "EventsResults_date",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 33
-      },
-      __self: this
-    }, item.start.local), item.is_free === true && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-      className: "EventsResults_price",
+      className: "EventsResults_details",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 38
       },
       __self: this
-    }, "FREE"))))));
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventsResults_date",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, `DATE: ${moment__WEBPACK_IMPORTED_MODULE_3___default()(item.start.local).format('DD/MM/YYYY')}`), item.is_free === true && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventsResults_price",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }, "FREE"), item.is_free === false && react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      className: "EventsResults_price",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, "\xA3\xA3\xA3")))))));
   }
 
 }
@@ -1091,13 +1117,13 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       const searchFromDate = `${fromDate}T00:00:01Z`;
       const toDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(enteredTo).format('YYYY-MM-DD');
       const searchToDate = `${toDate}T00:00:01Z`;
-      let results = [];
       fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=107&token=${eventbriteApiKey}`).then(response => {
         return response.json();
-      }).then(data => {//Need to loop through object to create correct child with no html object
-      }); // this.setState({events: results})
-      // debugger
-      // .catch(error => console.log('Error', error));
+      }).then(data => {
+        this.setState({
+          events: data.events
+        });
+      }).catch(error => console.log('Error', error));
     });
 
     this.state = {
@@ -1143,21 +1169,21 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       className: "EventSearch",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 158
+        lineNumber: 154
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "EventSearch_container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 159
+        lineNumber: 155
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "EventSearch_searchBar",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 160
+        lineNumber: 156
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
@@ -1165,28 +1191,28 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onClick: this.handleDatePicker,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 161
+        lineNumber: 157
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "EventSearch_label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162
+        lineNumber: 158
       },
       __self: this
     }, dateLabel), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "EventSearch_value",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 165
+        lineNumber: 161
       },
       __self: this
     }, selectedDates)), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: activeDatePicker ? 'EventSearch_datePicker EventSearch_datePicker-active' : 'EventSearch_datePicker',
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 169
+        lineNumber: 165
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_day_picker__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -1200,7 +1226,7 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onDayMouseEnter: this.handleDayMouseEnter,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 170
+        lineNumber: 166
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
@@ -1208,14 +1234,14 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onClick: this.handleCloseDatePicker,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 182
+        lineNumber: 178
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "EventSearch_label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 183
+        lineNumber: 179
       },
       __self: this
     }, locationLabel), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_7___default.a, {
@@ -1224,7 +1250,7 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onSelect: this.handleLocationSelect,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 187
+        lineNumber: 183
       },
       __self: this
     }, ({
@@ -1235,7 +1261,7 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     }) => react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 193
+        lineNumber: 189
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, getInputProps({
@@ -1244,20 +1270,20 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
     }), {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 194
+        lineNumber: 190
       },
       __self: this
     })), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       className: "EventSearch_locationContainer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 200
+        lineNumber: 196
       },
       __self: this
     }, loading && react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 201
+        lineNumber: 197
       },
       __self: this
     }, " Loading..."), suggestions.map(suggestion => {
@@ -1275,13 +1301,13 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       }), {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 206
+          lineNumber: 202
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 209
+          lineNumber: 205
         },
         __self: this
       }, suggestion.description));
@@ -1289,7 +1315,7 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       className: "EventSearch_action",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 220
+        lineNumber: 216
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("button", {
@@ -1298,29 +1324,38 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_4__["Component"] {
       onClick: this.handleSearchEvents,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 221
+        lineNumber: 217
       },
       __self: this
-    }, searchButtonText)))), events.length === 0 && react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+    }, searchButtonText)))), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+      className: "EventSearch_resultsContainer",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 229
+        lineNumber: 223
       },
       __self: this
-    }, "Heading + Paragraph "), events.length > 0 && react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, events.length === 0 && react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("h2", {
+      className: "EventSearch_title",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 234
+        lineNumber: 228
+      },
+      __self: this
+    }, "Heading + Paragraph"), events.length > 0 && react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("h2", {
+      className: "eventSearch_title",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 236
       },
       __self: this
     }, `Wellness Events in ${locationValue}`), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_EventsResults__WEBPACK_IMPORTED_MODULE_8__["default"], {
       items: events,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 237
+        lineNumber: 239
       },
       __self: this
-    })));
+    })))));
   }
 
 }
@@ -1600,7 +1635,7 @@ Events.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!********************************!*\
   !*** multi ./pages/events.jsx ***!
   \********************************/

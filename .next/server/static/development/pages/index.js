@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1183,7 +1183,7 @@ const propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default()({
 });
 const defaultProps = {
   accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
-  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=wellnessLifestyle',
+  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=yogi',
   introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
   pageTitle: 'Page Title',
   subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
@@ -1505,7 +1505,7 @@ const App = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("di
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

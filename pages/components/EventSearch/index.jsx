@@ -133,17 +133,13 @@ class EventSearch extends Component {
     const toDate = moment(enteredTo).format('YYYY-MM-DD');
     const searchToDate = `${toDate}T00:00:01Z`;
 
-    let results = [];
-
     fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=107&token=${eventbriteApiKey}`)
     .then(response => {
       return response.json();
     }).then(data => {
-      //Need to loop through object to create correct child with no html object
+      this.setState({events: data.events})
     })
-    // this.setState({events: results})
-    // debugger
-    // .catch(error => console.log('Error', error));
+    .catch(error => console.log('Error', error));
   }
 
 
@@ -224,21 +220,30 @@ class EventSearch extends Component {
             </div>
           </div>
         </div>
-        {events.length === 0
-          && (
-            <div>Heading + Paragraph </div>
-          )}
-          {events.length > 0
-            && (
-              <>
-                <div>
-                  {`Wellness Events in ${locationValue}`}
-                </div>
-                <EventsResults
-                  items={events}
-                />
-              </>
-            )}
+        <div className="EventSearch_resultsContainer">
+          <>
+            {events.length === 0
+              && 
+              (
+                <h2 className="EventSearch_title">
+                  Heading + Paragraph
+                </h2>
+              )
+            }
+            {events.length > 0
+              && (
+                  <>
+                    <h2 className="eventSearch_title">
+                      {`Wellness Events in ${locationValue}`}
+                    </h2>
+                    <EventsResults
+                      items={events}
+                    />
+                  </>
+              )
+            }
+          </>
+        </div>
       </div>
     )
   }

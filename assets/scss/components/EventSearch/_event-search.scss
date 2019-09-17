@@ -80,6 +80,7 @@
     position: absolute;
     width: 50%;
     margin-top: 0.4rem;
+    background-color: map-get($colors, "white");
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   }
 
@@ -90,5 +91,16 @@
     & + & {
       margin-top: 0.5rem;
     }
+  }
+
+  &_resultsContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  &_title {
+    @include heading-two;
   }
 }

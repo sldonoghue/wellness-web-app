@@ -11137,7 +11137,7 @@ var propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_7___default()({
 });
 var defaultProps = {
   accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
-  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=wellnessLifestyle',
+  tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=yogi',
   introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
   pageTitle: 'Page Title',
   subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
@@ -11474,7 +11474,7 @@ var App = function App() {
 
 /***/ }),
 
-/***/ 0:
+/***/ 2:
 /*!*********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fsarahdonoghue%2FDocuments%2FProjects%2Fwellness-events-app%2Fpages%2Findex.js ***!
   \*********************************************************************************************************************************************************/
@@ -11497,5 +11497,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[2,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

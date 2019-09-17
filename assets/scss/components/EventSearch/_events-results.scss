@@ -1,0 +1,61 @@
+.EventsResults{
+
+  &_list {
+    @include container;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: center;
+    margin: 2rem 0;
+    list-style: none;
+  }
+
+  &_card {
+    @include column ( 1 / 4 );
+    margin: 1rem;
+    color: map-get($font-colors, "text-dark");
+    border: 1px solid map-get($colors, "grey");
+  }
+
+  &_imageContainer {
+    overflow: hidden;
+    height: 12.5rem;
+    background: lightblue;
+  }
+
+  &_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_textContent {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 1rem;
+    min-height: 18rem;
+    color: black;
+  }
+
+  &_title {
+    color: map-get($brand-colors, "primary-dark");
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+  }
+
+  &_details {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  &_date,
+  &_price {
+    font-size: 0.85rem;
+  }
+}

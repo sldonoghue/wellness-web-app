@@ -2,6 +2,8 @@ import exact from 'prop-types-exact';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import moment from 'moment';
+
 const propTypes = {
   items: PropTypes.array,
 }
@@ -13,32 +15,45 @@ class EventsResults extends Component {
 
   render() {
     const { items } = this.props;
-    debugger
 
     return ( 
-      <ul className="EventsResults">
+      <ul className="EventsResults_list">
         {items.map((item, index) => (
           <li className="EventsResults_card" key={index}>
             <a href={item.url} target="_blank">
               <div className="EventsResults_imageContainer">
-                {/* <figure className="EventsResults_image" style={{backgroundImage: `url(${item.logo.url})`}} /> */}
+                {item.logo != null
+                  && (
+                    <figure className="EventsResults_image" style={{backgroundImage: `url(${item.logo.url})`}} />
+                  )
+                }
               </div>
-              <div className="EventsResults_textConent">
+              <div className="EventsResults_textContent">
                 <div className="EventsResults_title">
-                  {item.name}
+                  {item.name.text}
                 </div>
                 <div className="EventsResults_summary">
                   {item.summary}
                 </div>
-                <div className="EventsResults_date">
-                  {item.start.local}
+                <div className="EventsResults_details">
+                  <div className="EventsResults_date">
+                    {`DATE: ${moment(item.start.local).format('DD/MM/YYYY')}`}
+                  </div>
+                  {item.is_free === true
+                    && (
+                      <div className="EventsResults_price">
+                        FREE
+                      </div>
+                    )
+                  }
+                  {item.is_free === false
+                    && (
+                      <div className="EventsResults_price">
+                        £££
+                      </div>
+                    )
+                  }
                 </div>
-                {item.is_free === true
-                  && (
-                    <div className="EventsResults_price">
-                      FREE
-                    </div>
-                  )}
               </div>
             </a>
           </li>
