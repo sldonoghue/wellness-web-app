@@ -11211,42 +11211,42 @@ function (_Component) {
         className: "Homepage",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 69
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "Homepage_container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 70
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "Homepage_heroImage",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72
+          lineNumber: 71
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "Homepage_content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("h1", {
         className: "Homepage_bannerTitle",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 74
+          lineNumber: 73
         },
         __self: this
       }, title), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "Homepage_subtext",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 76
         },
         __self: this
       }, subtext), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("button", {
@@ -11254,7 +11254,7 @@ function (_Component) {
         onClick: this.handleJumpLink,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 79
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
@@ -11262,35 +11262,35 @@ function (_Component) {
         ref: this.scrollTo,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 82
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "Homepage_sectionContent",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 83
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("h2", {
         className: "Homepage_pageTitle",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 84
         },
         __self: this
       }, pageTitle), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "Homepage_text",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 88
+          lineNumber: 87
         },
         __self: this
       }, introText)), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_ImageSplit__WEBPACK_IMPORTED_MODULE_10__["default"], {
         handlePageClick: this.handlePageClick,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 92
+          lineNumber: 91
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_Inspiration__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -11298,7 +11298,7 @@ function (_Component) {
         title: "#Wellness",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 94
         },
         __self: this
       })));
@@ -11474,7 +11474,7 @@ var App = function App() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 0:
 /*!*********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fsarahdonoghue%2FDocuments%2FProjects%2Fwellness-events-app%2Fpages%2Findex.js ***!
   \*********************************************************************************************************************************************************/
@@ -11497,5 +11497,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[0,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
