@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1246,42 +1246,42 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       className: "Homepage",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 69
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_container",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 70
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_heroImage",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 71
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_content",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 72
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("h1", {
       className: "Homepage_bannerTitle",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 73
       },
       __self: this
     }, title), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_subtext",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 76
       },
       __self: this
     }, subtext), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
@@ -1289,7 +1289,7 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       onClick: this.handleJumpLink,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80
+        lineNumber: 79
       },
       __self: this
     }))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
@@ -1297,35 +1297,35 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       ref: this.scrollTo,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83
+        lineNumber: 82
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_sectionContent",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 83
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("h2", {
       className: "Homepage_pageTitle",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 85
+        lineNumber: 84
       },
       __self: this
     }, pageTitle), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
       className: "Homepage_text",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88
+        lineNumber: 87
       },
       __self: this
     }, introText)), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_ImageSplit__WEBPACK_IMPORTED_MODULE_4__["default"], {
       handlePageClick: this.handlePageClick,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92
+        lineNumber: 91
       },
       __self: this
     }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_Inspiration__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -1333,7 +1333,7 @@ class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
       title: "#Wellness",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 94
       },
       __self: this
     })));
@@ -1505,7 +1505,7 @@ const App = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("di
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
