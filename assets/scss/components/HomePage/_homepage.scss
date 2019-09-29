@@ -1,4 +1,6 @@
 .Homepage {
+  padding-bottom: 8rem;
+
   &_container {
     position: relative;
     height: 54.5rem;
@@ -63,9 +65,5 @@
     margin-top: 5rem;
     color: map-get($colors, "text-dark");
     font-size: 1.2rem;
-  }
-
-  & + .Footer {
-    padding-top: 8rem;
   }
 }

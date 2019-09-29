@@ -1,0 +1,87 @@
+.EventDetails {
+
+  &_imageContainer {
+    position: relative;
+    height: 28rem;
+    width: 100%;
+    background: lightblue;
+  }
+
+  &_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_content {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &_title {
+    padding: 1rem 3rem;
+    color: map-get($brand-colors, "primary-dark");
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  &_eventInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 3rem;
+    background-color: map-get($colors, "grey-ultra-light")
+  }
+
+  &_time {
+    font-weight: 600;
+
+    & + & {
+      margin-top: 0.5rem
+    }
+  }
+
+  &_actions {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+
+  &_button {
+    width: 10rem;
+    padding: 0.9rem;
+    background-color: map-get($brand-colors, "primary");
+    color: map-get($colors, "white");
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  &_address {
+    display: flex;
+    flex-flow: column;
+    font-weight: 600;
+  }
+
+  &_capacity {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &_price {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &_description {
+    padding: 3rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+}

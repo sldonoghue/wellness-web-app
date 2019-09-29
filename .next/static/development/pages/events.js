@@ -30922,15 +30922,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/createClass */ "./node_modules/@babel/runtime-corejs2/helpers/esm/createClass.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime-corejs2/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime-corejs2/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime-corejs2/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
+/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_11__);
+
+
 
 
 
@@ -30941,122 +30947,156 @@ var _jsxFileName = "/Users/sarahdonoghue/Documents/Projects/wellness-events-app/
 
 
 
+
 var propTypes = {
-  items: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.array
+  items: prop_types__WEBPACK_IMPORTED_MODULE_8___default.a.array
 };
 
 var EventsResults =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(EventsResults, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(EventsResults, _Component);
 
   function EventsResults(props) {
+    var _this;
+
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, EventsResults);
 
-    return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(EventsResults).call(this, props));
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(EventsResults).call(this, props));
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "loadMore", function () {
+      var visibleItems = _this.state.visibleItems;
+
+      _this.setState(function (prev) {
+        return {
+          visibleItems: prev.visibleItems + 6
+        };
+      });
+    });
+
+    _this.state = {
+      visibleItems: 9
+    };
+    return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(EventsResults, [{
     key: "render",
     value: function render() {
+      var visibleItems = this.state.visibleItems;
       var items = this.props.items;
-      return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("ul", {
+      return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("ul", {
         className: "EventsResults_list",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 38
         },
         __self: this
-      }, items.map(function (item, index) {
-        return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("li", {
+      }, items.slice(0, visibleItems).map(function (item, index) {
+        return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("li", {
           className: "EventsResults_card",
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 22
+            lineNumber: 40
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("a", {
-          href: item.url,
+        }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
+          href: "/eventPage?id=".concat(item.id),
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("a", {
           target: "_blank",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 23
+            lineNumber: 42
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
           className: "EventsResults_imageContainer",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 43
           },
           __self: this
-        }, item.logo != null && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("figure", {
+        }, item.logo != null && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("figure", {
           className: "EventsResults_image",
           style: {
             backgroundImage: "url(".concat(item.logo.url, ")")
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 46
           },
           __self: this
-        })), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        })), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
           className: "EventsResults_textContent",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 50
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
           className: "EventsResults_title",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 32
-          },
-          __self: this
-        }, item.name.text), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-          className: "EventsResults_summary",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          },
-          __self: this
-        }, item.summary), react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-          className: "EventsResults_details",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 38
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-          className: "EventsResults_date",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 39
-          },
-          __self: this
-        }, "DATE: ".concat(moment__WEBPACK_IMPORTED_MODULE_8___default()(item.start.local).format('DD/MM/YYYY'))), item.is_free === true && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-          className: "EventsResults_price",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 44
-          },
-          __self: this
-        }, "FREE"), item.is_free === false && react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement("div", {
-          className: "EventsResults_price",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 51
           },
           __self: this
-        }, "\xA3\xA3\xA3")))));
-      }));
+        }, item.name.text), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+          className: "EventsResults_summary",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 54
+          },
+          __self: this
+        }, item.summary), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+          className: "EventsResults_details",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 57
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+          className: "EventsResults_date",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 58
+          },
+          __self: this
+        }, "DATE: ".concat(moment__WEBPACK_IMPORTED_MODULE_10___default()(item.start.local).format('DD/MM/YYYY'))), item.is_free === true && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+          className: "EventsResults_price",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          },
+          __self: this
+        }, "FREE"), item.is_free === false && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+          className: "EventsResults_price",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 70
+          },
+          __self: this
+        }, "\xA3\xA3\xA3"))))));
+      })), visibleItems < items.length && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("button", {
+        type: "button",
+        className: "Button EventsResults_button",
+        onClick: this.loadMore,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84
+        },
+        __self: this
+      }, "Load More"));
     }
   }]);
 
   return EventsResults;
-}(react__WEBPACK_IMPORTED_MODULE_7__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
 
 EventsResults.propTypes = propTypes;
 /* harmony default export */ __webpack_exports__["default"] = (EventsResults);
@@ -31237,23 +31277,50 @@ function (_Component) {
           from = _this$state4.from,
           enteredTo = _this$state4.enteredTo,
           events = _this$state4.events,
+          locationValue = _this$state4.locationValue,
           latLng = _this$state4.latLng;
       var _this$props = _this.props,
           eventbriteApiKey = _this$props.eventbriteApiKey,
           eventbriteLink = _this$props.eventbriteLink;
-      var fromDate = moment__WEBPACK_IMPORTED_MODULE_12___default()(from).format('YYYY-MM-DD');
-      var searchFromDate = "".concat(fromDate, "T00:00:01Z");
-      var toDate = moment__WEBPACK_IMPORTED_MODULE_12___default()(enteredTo).format('YYYY-MM-DD');
-      var searchToDate = "".concat(toDate, "T00:00:01Z");
-      fetch("".concat(eventbriteLink, "start_date.range_start=").concat(searchFromDate, "&start_date.range_end=").concat(searchToDate, "&location.longitude=").concat(latLng.lng, "&location.latitude=").concat(latLng.lat, "&categories=107&token=").concat(eventbriteApiKey)).then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        _this.setState({
-          events: data.events
-        });
-      })["catch"](function (error) {
-        return console.log('Error', error);
+      if (!locationValue) return _this.setState({
+        requiredMessage: 'Please enter a location'
       });
+
+      if (locationValue && from) {
+        _this.setState({
+          requiredMessage: ''
+        });
+
+        var fromDate = moment__WEBPACK_IMPORTED_MODULE_12___default()(from).format('YYYY-MM-DD');
+        var searchFromDate = "".concat(fromDate, "T00:00:01Z");
+        var toDate = moment__WEBPACK_IMPORTED_MODULE_12___default()(enteredTo).format('YYYY-MM-DD');
+        var searchToDate = "".concat(toDate, "T00:00:01Z");
+        fetch("".concat(eventbriteLink, "start_date.range_start=").concat(searchFromDate, "&start_date.range_end=").concat(searchToDate, "&location.longitude=").concat(latLng.lng, "&location.latitude=").concat(latLng.lat, "&categories=108&token=").concat(eventbriteApiKey)).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          _this.setState({
+            events: data.events
+          });
+        })["catch"](function (error) {
+          return console.log('Error', error);
+        });
+      }
+
+      if (locationValue && !from) {
+        var currentDate = moment__WEBPACK_IMPORTED_MODULE_12___default()().format('YYYY-MM-DD');
+
+        var _searchFromDate = "".concat(currentDate, "T00:00:01Z");
+
+        fetch("".concat(eventbriteLink, "start_date.range_start=").concat(_searchFromDate, "&location.longitude=").concat(latLng.lng, "&location.latitude=").concat(latLng.lat, "&categories=108&token=").concat(eventbriteApiKey)).then(function (response) {
+          return response.json();
+        }).then(function (data) {
+          _this.setState({
+            events: data.events
+          });
+        })["catch"](function (error) {
+          return console.log('Error', error);
+        });
+      }
     });
 
     _this.state = {
@@ -31283,8 +31350,10 @@ function (_Component) {
           events = _this$state5.events,
           from = _this$state5.from,
           locationValue = _this$state5.locationValue,
+          requiredMessage = _this$state5.requiredMessage,
           selectedDates = _this$state5.selectedDates,
-          to = _this$state5.to;
+          to = _this$state5.to,
+          visibleItems = _this$state5.visibleItems;
       var modifiers = {
         start: from,
         end: enteredTo
@@ -31296,25 +31365,26 @@ function (_Component) {
         from: from,
         to: enteredTo
       }];
+      var today = new Date();
       return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 154
+          lineNumber: 173
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 174
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_searchBar",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 175
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
@@ -31322,28 +31392,28 @@ function (_Component) {
         onClick: this.handleDatePicker,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 176
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 158
+          lineNumber: 177
         },
         __self: this
       }, dateLabel), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_value",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 180
         },
         __self: this
       }, selectedDates)), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: activeDatePicker ? 'EventSearch_datePicker EventSearch_datePicker-active' : 'EventSearch_datePicker',
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 165
+          lineNumber: 184
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react_day_picker__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -31351,13 +31421,15 @@ function (_Component) {
         numberOfMonths: 2,
         fromMonth: from,
         selectedDays: selectedDays,
-        disabledDays: disabledDays,
+        disabledDays: {
+          before: today
+        },
         modifiers: modifiers,
         onDayClick: this.handleDayClick,
         onDayMouseEnter: this.handleDayMouseEnter,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166
+          lineNumber: 185
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
@@ -31365,14 +31437,14 @@ function (_Component) {
         onClick: this.handleCloseDatePicker,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 178
+          lineNumber: 197
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 179
+          lineNumber: 198
         },
         __self: this
       }, locationLabel), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_13___default.a, {
@@ -31381,7 +31453,7 @@ function (_Component) {
         onSelect: this.handleLocationSelect,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 183
+          lineNumber: 202
         },
         __self: this
       }, function (_ref) {
@@ -31392,7 +31464,7 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 189
+            lineNumber: 208
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, getInputProps({
@@ -31401,20 +31473,20 @@ function (_Component) {
         }), {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 190
+            lineNumber: 209
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
           className: "EventSearch_locationContainer",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 196
+            lineNumber: 215
           },
           __self: this
         }, loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 197
+            lineNumber: 216
           },
           __self: this
         }, " Loading..."), suggestions.map(function (suggestion) {
@@ -31432,22 +31504,29 @@ function (_Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 202
+              lineNumber: 221
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("span", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 205
+              lineNumber: 224
             },
             __self: this
           }, suggestion.description));
         })));
-      })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+      }), requiredMessage != '' && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_required",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 236
+        },
+        __self: this
+      }, requiredMessage)), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_action",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 216
+          lineNumber: 241
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("button", {
@@ -31456,35 +31535,35 @@ function (_Component) {
         onClick: this.handleSearchEvents,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 217
+          lineNumber: 242
         },
         __self: this
       }, searchButtonText)))), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_resultsContainer",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 223
+          lineNumber: 248
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, events.length === 0 && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
         className: "EventSearch_title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 253
         },
         __self: this
       }, "Heading + Paragraph"), events.length > 0 && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
         className: "eventSearch_title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 236
+          lineNumber: 262
         },
         __self: this
       }, "Wellness Events in ".concat(locationValue)), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_EventsResults__WEBPACK_IMPORTED_MODULE_14__["default"], {
         items: events,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 239
+          lineNumber: 265
         },
         __self: this
       })))));
