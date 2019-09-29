@@ -45,6 +45,11 @@
     font-size: 1.125rem;
   }
 
+  &_action {
+    display: flex;
+    align-items: center;
+  }
+
   &_button {
     background-color: map-get($brand-colors, "primary");
     color: map-get($colors, "white");
@@ -102,5 +107,10 @@
 
   &_title {
     @include heading-two;
+  }
+
+  &_required {
+    color: map-get($colors, "red");
+    font-size: 0.875rem;
   }
 }

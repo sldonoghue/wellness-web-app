@@ -124,31 +124,50 @@ class EventSearch extends Component {
   };
 
   handleSearchEvents = () => {
-    const { from, enteredTo, events, latLng } = this.state;
+    const { from, enteredTo, events, locationValue, latLng } = this.state;
     const { eventbriteApiKey, eventbriteLink } = this.props;
-    
-    const fromDate = moment(from).format('YYYY-MM-DD');
-    const searchFromDate = `${fromDate}T00:00:01Z`;
 
-    const toDate = moment(enteredTo).format('YYYY-MM-DD');
-    const searchToDate = `${toDate}T00:00:01Z`;
+    if (!locationValue) return this.setState({requiredMessage: 'Please enter a location'});
 
-    fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=107&token=${eventbriteApiKey}`)
-    .then(response => {
-      return response.json();
-    }).then(data => {
-      this.setState({events: data.events})
-    })
-    .catch(error => console.log('Error', error));
+    if (locationValue && from) {
+      this.setState({requiredMessage: ''});
+
+      const fromDate = moment(from).format('YYYY-MM-DD');
+      const searchFromDate = `${fromDate}T00:00:01Z`;
+
+      const toDate = moment(enteredTo).format('YYYY-MM-DD');
+      const searchToDate = `${toDate}T00:00:01Z`;
+
+      fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        this.setState({events: data.events})
+      })
+      .catch(error => console.log('Error', error));
+    }
+
+    if(locationValue && !from) {
+      const currentDate = moment().format('YYYY-MM-DD');
+      const searchFromDate = `${currentDate}T00:00:01Z`;
+
+      fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
+      .then(response => {
+        return response.json();
+      }).then(data => {
+        this.setState({events: data.events})
+      })
+      .catch(error => console.log('Error', error));
+    }
   }
-
 
   render() {
     const { dateLabel, locationLabel, searchButtonText } = this.props;
-    const { activeDatePicker, enteredTo, events, from, locationValue, selectedDates, to } = this.state;
+    const { activeDatePicker, enteredTo, events, from, locationValue, requiredMessage, selectedDates, to, visibleItems } = this.state;
     const modifiers = { start: from, end: enteredTo };
     const disabledDays = { before: from };
     const selectedDays = [from, { from, to: enteredTo }];
+    const today = new Date();
 
     return (
       <div className="EventSearch">
@@ -168,7 +187,7 @@ class EventSearch extends Component {
                 numberOfMonths={2}
                 fromMonth={from}
                 selectedDays={selectedDays}
-                disabledDays={disabledDays}
+                disabledDays={{before: today}}
                 modifiers={modifiers}
                 onDayClick={this.handleDayClick}
                 onDayMouseEnter={this.handleDayMouseEnter}
@@ -212,6 +231,12 @@ class EventSearch extends Component {
                   </div>
                 )}
                 </PlacesAutocomplete>
+                {requiredMessage != ''
+                  && (
+                    <div className="EventSearch_required">
+                      {requiredMessage}
+                    </div>
+                  )}
             </div>
             <div className="EventSearch_action">
               <button type="button" className="Button EventSearch_button" onClick={this.handleSearchEvents}>
@@ -231,15 +256,16 @@ class EventSearch extends Component {
               )
             }
             {events.length > 0
-              && (
-                  <>
-                    <h2 className="eventSearch_title">
-                      {`Wellness Events in ${locationValue}`}
-                    </h2>
-                    <EventsResults
-                      items={events}
-                    />
-                  </>
+              && 
+                (
+                <>
+                  <h2 className="eventSearch_title">
+                    {`Wellness Events in ${locationValue}`}
+                  </h2>
+                  <EventsResults
+                    items={events}
+                  />
+                </>
               )
             }
           </>

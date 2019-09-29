@@ -1,4 +1,4 @@
-.EventsResults{
+.EventsResults {
 
   &_list {
     @include container;
@@ -57,5 +57,12 @@
   &_date,
   &_price {
     font-size: 0.85rem;
+  }
+
+  &_button {
+    background-color: map-get($brand-colors, "primary");
+    color: map-get($colors, "white");
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 }

@@ -1,14 +1,11 @@
 .Footer {
-  position: static;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  background-color: map-get($brand-colors, "primary-dark");
 
-  &_container {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 60px;
-    width: 100%;
-    background-color: map-get($brand-colors, "primary-dark");
-  }
 
   &_list {
     display: flex;
