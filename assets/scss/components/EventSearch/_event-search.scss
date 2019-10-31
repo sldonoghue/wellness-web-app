@@ -55,6 +55,10 @@
     color: map-get($colors, "white");
     font-size: 0.85rem;
     font-weight: 600;
+
+    &:hover {
+      background-color: map-get($brand-colors, "primary-active");
+    }
   }
 
   &_datePicker {
@@ -105,12 +109,69 @@
     margin-top: 5rem;
   }
 
+  &_loadingContent {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &_loadingCardContent {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 2rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  &_loadingCard {
+    @include column (1 / 3);
+    display: flex;
+    flex-flow: column;
+    padding: 1rem 4rem;
+  }
+
+  &_loading {
+    @include placeholder;
+    &-title {
+      height: 80px;
+      width: 400px;
+    }
+  }
+
   &_title {
     @include heading-two;
+    width: 500px;
+    text-align: center;
+  }
+
+  &_paragraph {
+    margin-top: 2rem;
+    color: map-get($colors, "text-dark");
+    font-size: 1.2rem;
   }
 
   &_required {
     color: map-get($colors, "red");
     font-size: 0.875rem;
+  }
+
+  &_filterContainer {
+    @include container;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &_filter {
+    width: 120px;
+    border: 1px solid map-get($brand-colors, "primary-dark");
+    background-color: map-get($colors, "white");
+    font-size: 1rem;
+
+    &:hover {
+      border: 1px solid map-get($brand-colors, "primary-active");
+    }
   }
 }

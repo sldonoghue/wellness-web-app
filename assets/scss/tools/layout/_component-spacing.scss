@@ -1,5 +1,5 @@
 @mixin component-spacing($root-child-1-has-margin: true) {
-  margin-top: spacing(2);
+  margin-top: spacing(3);
 
   &:first-child {
     margin-top: 0;

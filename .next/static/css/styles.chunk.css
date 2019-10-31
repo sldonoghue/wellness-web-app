@@ -1,5 +1,11 @@
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0; }
+  100% {
+    background-position: 468px 0; } }
+
 .Component {
-  margin-top: 4rem;
+  margin-top: 6rem;
   overflow-x: hidden; }
   .Component:first-child {
     margin-top: 0; }
@@ -185,76 +191,136 @@ p {
   100% {
     transform: rotate(360deg); } }
 
-.EventDetails_imageContainer {
-  position: relative;
-  height: 28rem;
-  width: 100%;
-  background: lightblue; }
-
-.EventDetails_image {
-  display: block;
-  height: 100%;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
-
-.EventDetails_content {
-  display: flex;
-  flex-flow: column; }
-
-.EventDetails_title {
-  padding: 1rem 3rem;
-  color: #14505B;
-  font-weight: 600;
-  font-size: 2rem;
-  text-transform: uppercase; }
-
-.EventDetails_eventInfo {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 1rem 3rem;
-  background-color: #F9F9F9; }
-
-.EventDetails_time {
-  font-weight: 600; }
-  .EventDetails_time + .EventDetails_time {
+.EventDetails {
+  padding-bottom: 10rem; }
+  .EventDetails_imageContainer {
+    position: relative;
+    height: 28rem;
+    width: 100%;
+    background: lightblue; }
+  .EventDetails_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .EventDetails_content {
+    display: flex;
+    flex-flow: column; }
+  .EventDetails_title {
+    padding: 1rem 3rem;
+    color: #14505B;
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: uppercase; }
+  .EventDetails_eventInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 3rem;
+    background-color: #F9F9F9; }
+  .EventDetails_time {
+    font-weight: 600; }
+    .EventDetails_time + .EventDetails_time {
+      margin-top: 0.5rem; }
+  .EventDetails_actions {
+    display: flex;
     margin-top: 0.5rem; }
-
-.EventDetails_actions {
-  display: flex;
-  margin-top: 0.5rem; }
-
-.EventDetails_button {
-  width: 10rem;
-  padding: 0.9rem;
-  background-color: #00B6C8;
-  color: #fff;
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 600; }
-
-.EventDetails_address {
-  display: flex;
-  flex-flow: column;
-  font-weight: 600; }
-
-.EventDetails_capacity {
-  text-transform: uppercase;
-  font-weight: 600; }
-
-.EventDetails_price {
-  margin-top: 1rem;
-  text-transform: uppercase;
-  font-weight: 600; }
-
-.EventDetails_description {
-  padding: 3rem;
-  font-size: 1.125rem;
-  line-height: 1.5; }
+  .EventDetails_button {
+    width: 10rem;
+    padding: 0.9rem;
+    background-color: #00B6C8;
+    color: #fff;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600; }
+    .EventDetails_button:hover {
+      background-color: #00A0B0; }
+  .EventDetails_address {
+    display: flex;
+    flex-flow: column;
+    font-weight: 600; }
+  .EventDetails_capacity {
+    text-transform: uppercase;
+    font-weight: 600; }
+  .EventDetails_price {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 600; }
+  .EventDetails_description {
+    padding: 3rem;
+    font-size: 1.125rem;
+    line-height: 1.5; }
+  .EventDetails_friendsContainer {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%; }
+    @media screen and (min-width: 0) and (max-width: 479px) {
+      .EventDetails_friendsContainer {
+        max-width: none;
+        padding-left: 1rem;
+        padding-right: 1rem; } }
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+      .EventDetails_friendsContainer {
+        max-width: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem; } }
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      .EventDetails_friendsContainer {
+        max-width: none;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem; } }
+    @media screen and (min-width: 1024px) and (max-width: 1439px) {
+      .EventDetails_friendsContainer {
+        max-width: none;
+        padding-left: 2rem;
+        padding-right: 2rem; } }
+    @media screen and (min-width: 1440px) {
+      .EventDetails_friendsContainer {
+        max-width: 1600px;
+        padding-left: 2rem;
+        padding-right: 2rem; } }
+  .EventDetails_friendsContent {
+    display: flex;
+    flex-flow: column;
+    align-items: center; }
+  .EventDetails_friendTitle {
+    position: relative;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center; }
+    .EventDetails_friendTitle::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 1rem;
+      bottom: -1rem;
+      left: calc(50% - 30px);
+      border-bottom: 2px solid #00B6C8; }
+  .EventDetails_friendList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 400px;
+    height: 100%;
+    margin-top: 2rem;
+    list-style: none; }
+  .EventDetails_friendProfile {
+    flex: 0 0 auto;
+    width: 16.66667%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    background: lightblue;
+    margin: 1rem; }
 
 .EventSearch_container {
   display: flex;
@@ -302,6 +368,8 @@ p {
   color: #fff;
   font-size: 0.85rem;
   font-weight: 600; }
+  .EventSearch_button:hover {
+    background-color: #00A0B0; }
 
 .EventSearch_datePicker {
   display: none; }
@@ -339,17 +407,100 @@ p {
   align-items: center;
   margin-top: 5rem; }
 
+.EventSearch_loadingContent {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100%;
+  width: 100%; }
+
+.EventSearch_loadingCardContent {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 2rem;
+  height: 100%;
+  width: 100%; }
+
+.EventSearch_loadingCard {
+  flex: 0 0 auto;
+  width: 33.33333%;
+  display: flex;
+  flex-flow: column;
+  padding: 1rem 4rem; }
+
+.EventSearch_loading {
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #F6F6F6;
+  background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
+  background-size: 800px 104px;
+  height: 96px;
+  position: relative; }
+  .EventSearch_loading-title {
+    height: 80px;
+    width: 400px; }
+
 .EventSearch_title {
   font-size: 2rem;
   font-family: Playfair Display, serif;
-  font-weight: 400; }
+  font-weight: 400;
+  width: 500px;
+  text-align: center; }
   @media screen and (max-width: 767px) {
     .EventSearch_title {
       font-size: 1.7rem; } }
 
+.EventSearch_paragraph {
+  margin-top: 2rem;
+  font-size: 1.2rem; }
+
 .EventSearch_required {
   color: #C9001C;
   font-size: 0.875rem; }
+
+.EventSearch_filterContainer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: flex-end; }
+  @media screen and (min-width: 0) and (max-width: 479px) {
+    .EventSearch_filterContainer {
+      max-width: none;
+      padding-left: 1rem;
+      padding-right: 1rem; } }
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    .EventSearch_filterContainer {
+      max-width: none;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem; } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .EventSearch_filterContainer {
+      max-width: none;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem; } }
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .EventSearch_filterContainer {
+      max-width: none;
+      padding-left: 2rem;
+      padding-right: 2rem; } }
+  @media screen and (min-width: 1440px) {
+    .EventSearch_filterContainer {
+      max-width: 1600px;
+      padding-left: 2rem;
+      padding-right: 2rem; } }
+
+.EventSearch_filter {
+  width: 120px;
+  border: 1px solid #14505B;
+  background-color: #fff;
+  font-size: 1rem; }
+  .EventSearch_filter:hover {
+    border: 1px solid #00A0B0; }
 
 .EventsResults_list {
   width: 100%;
@@ -434,6 +585,8 @@ p {
   color: #fff;
   font-size: 0.85rem;
   font-weight: 600; }
+  .EventsResults_button:hover {
+    background-color: #00A0B0; }
 
 .Events {
   padding-bottom: 14rem; }
@@ -526,7 +679,7 @@ p {
     background: none;
     transform: rotate(-314deg); }
   .Homepage_section {
-    margin-top: 4rem;
+    margin-top: 6rem;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -578,15 +731,16 @@ p {
       position: absolute;
       width: 60px;
       height: 1rem;
-      bottom: -2rem;
+      bottom: -1rem;
       left: calc(50% - 30px);
       border-bottom: 2px solid #00B6C8; }
   .Homepage_text {
     margin-top: 5rem;
-    font-size: 1.2rem; }
+    font-size: 1.2rem;
+    text-align: center; }
 
 .ImageSplit {
-  margin-top: 4rem;
+  margin-top: 6rem;
   margin-bottom: 5rem; }
   .ImageSplit:first-child {
     margin-top: 0; }
@@ -594,43 +748,55 @@ p {
     margin-top: 4rem; }
   .ImageSplit_container {
     display: flex;
-    flex-flow: row wrap;
-    margin: 0 -2rem; }
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%; }
     @media screen and (max-width: 767px) {
       .ImageSplit_container {
-        flex-flow: column;
-        margin: 0; } }
+        flex-flow: column; } }
   .ImageSplit_item {
-    flex: 0 0 auto;
-    width: 50%;
-    padding: 0 1rem; }
+    width: 50%; }
     @media screen and (max-width: 767px) {
       .ImageSplit_item {
-        width: 100%;
-        padding: 0; } }
-  .ImageSplit_image {
-    height: 500px;
-    background: grey; }
+        width: 100%; } }
     @media screen and (max-width: 767px) {
-      .ImageSplit_image {
+      .ImageSplit_item-text {
+        order: 2; } }
+  .ImageSplit_imageContainer {
+    height: 500px;
+    width: 56.25%;
+    margin-left: 8rem;
+    background: #ccc; }
+    @media screen and (max-width: 767px) {
+      .ImageSplit_imageContainer {
         order: 1; } }
-  .ImageSplit_textContainer {
+  .ImageSplit_image {
+    height: 100%;
+    width: 100%; }
+  .ImageSplit_textContent {
     display: flex;
     flex-flow: column;
-    justify-content: center; }
-    @media screen and (max-width: 767px) {
-      .ImageSplit_textContainer {
-        order: 2; } }
+    justify-content: center;
+    height: 100%;
+    padding: 0 8rem; }
   .ImageSplit_title {
     font-size: 2rem;
     font-family: Playfair Display, serif;
     font-weight: 400;
-    margin-top: 3rem; }
+    position: relative; }
     @media screen and (max-width: 767px) {
       .ImageSplit_title {
         font-size: 1.7rem; } }
+    .ImageSplit_title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 1rem;
+      bottom: -1rem;
+      left: 0;
+      border-bottom: 2px solid #00B6C8; }
   .ImageSplit_innerText {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     font-size: 1.2rem; }
   .ImageSplit_actions {
     margin-top: 3rem;
@@ -639,14 +805,14 @@ p {
   .ImageSplit_button {
     height: 3rem;
     padding: 0.8rem 2rem;
-    background-color: #14505B;
+    background-color: #00B6C8;
     color: #fff;
     font-size: 0.85rem; }
     .ImageSplit_button:hover {
       background-color: #00A0B0; }
 
 .Inspiration {
-  margin-top: 4rem; }
+  margin-top: 6rem; }
   .Inspiration:first-child {
     margin-top: 0; }
   .Root > .Inspiration:first-child {
@@ -686,15 +852,26 @@ p {
   .Inspiration_title {
     font-size: 2rem;
     font-family: Playfair Display, serif;
-    font-weight: 400; }
+    font-weight: 400;
+    position: relative;
+    text-transform: uppercase; }
     @media screen and (max-width: 767px) {
       .Inspiration_title {
         font-size: 1.7rem; } }
+    .Inspiration_title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 1rem;
+      bottom: -1rem;
+      left: calc(50% - 30px);
+      border-bottom: 2px solid #00B6C8; }
   .Inspiration_content {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    width: 100%; }
+    width: 100%;
+    margin-top: 2rem; }
   .Inspiration_imageContainer {
     overflow: hidden;
     width: 25%;
@@ -734,7 +911,8 @@ p {
     color: #fff;
     opacity: 0.85; }
   .Navigation_link {
-    color: #fff; }
+    color: #fff;
+    font-size: 1.25rem; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

@@ -27,23 +27,27 @@ function ImageSplit(props) {
   return(
     <div className="ImageSplit">
       <div className="ImageSplit_container">
-        <div className="ImageSplit_item ImageSplit_textContainer">
-          <h2 className="ImageSplit_title">
-            {heading}
-          </h2>
-          <div className="ImageSplit_innerText">
-            {innerText}
-          </div>
-          <div className="ImageSplit_actions">
-            <Link href='/events'>
-              <a className="Button ImageSplit_button">
-                {buttonText}
-              </a>
-            </Link>
+        <div className="ImageSplit_item ImageSplit_item-text">
+          <div className="ImageSplit_textContent">
+            <h2 className="ImageSplit_title">
+              {heading}
+            </h2>
+            <div className="ImageSplit_innerText">
+              {innerText}
+            </div>
+            <div className="ImageSplit_actions">
+              <Link href='/events'>
+                <a className="Button ImageSplit_button">
+                  {buttonText}
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="ImageSplit_item">
-          <div className='ImageSplit_image' />
+          <div className="ImageSplit_imageContainer">
+            <div className='ImageSplit_image' />
+          </div>
         </div>
       </div>
     </div>

@@ -3,51 +3,72 @@
   margin-bottom: 5rem;
 
   &_container {
-    @include row;
-    margin: 0 -2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
 
     @include below(tablet) {
       flex-flow: column;
-      margin: 0;
     }
   }
 
   &_item {
-    @include column(1 / 2);
-    padding: 0 1rem;
+    width: 50%;
 
     @include below(tablet) {
       width: 100%;
-      padding: 0;
+    }
+
+    &-text {
+      @include below(tablet) {
+        order: 2;
+      }
     }
   }
 
-  &_image {
+  &_imageContainer {
     height: 500px;
-    background: grey;
+    width: 56.25%;
+    margin-left: 8rem;
+    background: map-get($colors, "grey");
 
     @include below(tablet) {
       order: 1;
     }
   }
 
-  &_textContainer {
+  &_image {
+    height: 100%;
+    width: 100%;
+  }
+
+  &_textContent{
     display: flex;
     flex-flow: column;
     justify-content: center;
-
-    @include below(tablet) {
-      order: 2;
-    }
+    height: 100%;
+    padding: 0 8rem;
   }
+
 
   &_title {
     @include heading-two;
-    margin-top: 3rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 1rem;
+      bottom: -1rem;
+      left: 0;
+      border-bottom: 2px solid map-get($brand-colors, 'primary');
+    }
   }
 
   &_innerText {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     font-size: 1.2rem;
   }
 
@@ -60,7 +81,7 @@
   &_button {
     height: 3rem;
     padding: 0.8rem 2rem;
-    background-color: map-get($brand-colors, "primary-dark");
+    background-color: map-get($brand-colors, "primary");
     color: map-get($colors, "white");
     font-size: 0.85rem;
 
