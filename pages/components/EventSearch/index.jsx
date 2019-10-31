@@ -8,6 +8,7 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
 
 import EventsResults from './EventsResults';
+import { runInThisContext } from 'vm';
 
 // https://react-day-picker.js.org/examples/selected-range-enter
 const propTypes = {
@@ -15,7 +16,9 @@ const propTypes = {
   eventbriteApiKey: PropTypes.string,
   eventbriteLink: PropTypes.string,
   locationLabel: PropTypes.string,
+  paragraph: PropTypes.string,
   searchButtonText: PropTypes.string,
+  title: PropTypes.string,
 }
 
 const defaultProps = {
@@ -23,8 +26,9 @@ const defaultProps = {
   eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
   eventbriteLink: 'https://www.eventbriteapi.com/v3/events/search/?',
   locationLabel: 'City',
+  paragraph: 'Use the search bar above to find your ideal wellness event.',
   searchButtonText: 'Search',
-
+  title: 'Event Search Page',
 }
 
 class EventSearch extends Component {
@@ -35,11 +39,14 @@ class EventSearch extends Component {
       activeDatePicker: false,
       city: '',
       events: [],
+      eventsFilterCopy: [],
       locationValue: '',
       enteredTo: null,
       from: null,
       latLng: null,
+      loading: false,
       selectedDates: 'Anytime',
+      selectedFilter: 'All',
       to: null,
     }
   }
@@ -116,18 +123,20 @@ class EventSearch extends Component {
     geocodeByAddress(locationValue)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
-        console.log('Success', latLng),
         this.setState({latLng})
       })
       .catch(error => console.error('Error', error));
       this.setState({ locationValue});
   };
 
+
   handleSearchEvents = () => {
     const { from, enteredTo, events, locationValue, latLng } = this.state;
     const { eventbriteApiKey, eventbriteLink } = this.props;
 
     if (!locationValue) return this.setState({requiredMessage: 'Please enter a location'});
+
+    this.setState({ loading: true })
 
     if (locationValue && from) {
       this.setState({requiredMessage: ''});
@@ -142,7 +151,12 @@ class EventSearch extends Component {
       .then(response => {
         return response.json();
       }).then(data => {
-        this.setState({events: data.events})
+        this.setState({
+          events: data.events,
+          eventsFilterCopy: data.events,
+          loading: false,
+          selectedFilter: 'All'
+        })
       })
       .catch(error => console.log('Error', error));
     }
@@ -161,9 +175,50 @@ class EventSearch extends Component {
     }
   }
 
+
+  handleFilter = (event) => {
+    let { events, eventsFilterCopy, selectedFilter } = this.state;
+    
+    const selected = event.currentTarget.value;
+    const totalEvents = eventsFilterCopy;
+    
+    if(selected === 'All') {
+      this.setState({events: eventsFilterCopy})
+    }
+   
+    if(selected === 'Free') {
+      let filteredFreeEvents = [];
+
+      totalEvents.forEach((event) => {
+        if(event.is_free === true) {
+          filteredFreeEvents.push(event)
+        }
+      })
+      this.setState({
+        events: filteredFreeEvents,
+        selectedFilter: selected
+      })
+    }
+
+    if(selected === '£££') {
+      let filteredPaidEvents = [];
+
+      totalEvents.forEach((event) => {
+        if(event.is_free === false) {
+          filteredPaidEvents.push(event)
+        }
+      })
+      this.setState({
+        events: filteredPaidEvents,
+        selectedFilter: selected
+      })
+    }
+  }
+
+
   render() {
-    const { dateLabel, locationLabel, searchButtonText } = this.props;
-    const { activeDatePicker, enteredTo, events, from, locationValue, requiredMessage, selectedDates, to, visibleItems } = this.state;
+    const { dateLabel, locationLabel, paragraph, searchButtonText, title } = this.props;
+    const { activeDatePicker, enteredTo, events, from, locationValue, loading, requiredMessage, selectedDates, to, visibleItems } = this.state;
     const modifiers = { start: from, end: enteredTo };
     const disabledDays = { before: from };
     const selectedDays = [from, { from, to: enteredTo }];
@@ -247,21 +302,66 @@ class EventSearch extends Component {
         </div>
         <div className="EventSearch_resultsContainer">
           <>
-            {events.length === 0
+            {(events.length === 0 && !loading)
               && 
               (
-                <h2 className="EventSearch_title">
-                  Heading + Paragraph
-                </h2>
+                <>
+                  <h2 className="EventSearch_title">
+                    {title}
+                  </h2>
+                  <div className="EventSearch_paragraph">
+                    {paragraph}
+                  </div>
+                </>
               )
             }
-            {events.length > 0
+            {loading
+              && (
+                <section className="EventSearch_loadingContent">
+                  <div className="EventSearch_loading EventSearch_loading-title" />
+
+                  <div className="EventSearch_loadingCardContent">
+                    <div className="EventSearch_loadingCard">
+                      <div className="EventSearch_loading EventSearch_loading-image" />
+                      <div className="EventSearch_loading EventSearch_loading-cardTitle" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                    </div>
+                    <div className="EventSearch_loadingCard">
+                      <div className="EventSearch_loading EventSearch_loading-image" />
+                      <div className="EventSearch_loading EventSearch_loading-cardTitle" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                    </div>
+                    <div className="EventSearch_loadingCard">
+                      <div className="EventSearch_loading EventSearch_loading-image" />
+                      <div className="EventSearch_loading EventSearch_loading-cardTitle" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                      <div className="EventSearch_loading EventSearch_loading-info" />
+                    </div>
+                  </div>
+                </section>
+              )
+            }
+            {(events.length > 0 && !loading)
               && 
                 (
                 <>
-                  <h2 className="eventSearch_title">
+                  <h2 className="EventSearch_title">
                     {`Wellness Events in ${locationValue}`}
                   </h2>
+                  <div className="EventSearch_filterContainer">
+            
+                      <select className="EventSearch_filter" value={this.state.selectedFilter} onChange={this.handleFilter}>
+                        <option className="EventSearch_option" value='All'>All</option>
+                        <option className="EventSearch_option" value='Free'>Free</option>
+                        <option className="EventSearch_option" value="£££">£££</option>
+                      </select>
+                  
+                  </div>
                   <EventsResults
                     items={events}
                   />

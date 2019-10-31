@@ -5,7 +5,7 @@
     position: absolute;
     width: $spacer-width;
     height: 1rem;
-    bottom: -2rem;
+    bottom: -1rem;
     left: calc(50% - #{$spacer-width / 2});
     border-bottom: 2px solid map-get($brand-colors, 'primary');
   }

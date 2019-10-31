@@ -1,4 +1,5 @@
 .EventDetails {
+  padding-bottom: 10rem;
 
   &_imageContainer {
     position: relative;
@@ -60,6 +61,10 @@
     text-align: center;
     font-size: 0.85rem;
     font-weight: 600;
+
+    &:hover {
+      background-color: map-get($brand-colors, "primary-active");
+    }
   }
 
   &_address {
@@ -83,5 +88,48 @@
     padding: 3rem;
     font-size: 1.125rem;
     line-height: 1.5;
+  }
+
+  &_friendsContainer {
+    @include container;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &_friendsContent {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &_friendTitle {
+    @include title-divider;
+    position: relative;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &_friendList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 400px;
+    height: 100%;
+    margin-top: 2rem;
+    list-style: none;
+  }
+
+  &_friendProfile {
+    @include column (1 / 6 );
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    background: lightblue;
+    margin: 1rem;
+
   }
 }

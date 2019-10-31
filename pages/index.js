@@ -14,7 +14,7 @@ const App = () => (
     </Head>
     <Homepage />
     <Footer />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABNyDuLYeflwYvxCwU9CqTu1z3OH1ZYOQ&amp;libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaDmjzK3X8zwcX6rBrkXhfbI3uoLGh7q4&amp;libraries=places"></script>
   </div>
 )
 
