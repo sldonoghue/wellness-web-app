@@ -811,68 +811,6 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/classnames/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/classnames/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ( true && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-}());
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/library/fn/array/from.js":
 /*!*******************************************************!*\
   !*** ./node_modules/core-js/library/fn/array/from.js ***!
@@ -9149,35 +9087,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-required-if/index.js":
-/*!*************************************************!*\
-  !*** ./node_modules/react-required-if/index.js ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = function requiredIf(type, condition) {
-  return function(props, propName, componentName) {
-    if (typeof type !== "function") {
-      return new Error(
-        'Invalid react-required-if prop type supplied to ' + componentName + '. Validation failed.'
-      );
-    }
-
-    if (typeof condition !== "function") {
-      return new Error(
-        'Invalid react-required-if condition supplied to ' + componentName + '. Validation failed.'
-      );
-    }
-
-    var test = condition(props) ? type.isRequired : type;
-    return test.apply(this, arguments);
-  };
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
   !*** delegated ./node_modules/react/index.js from dll-reference dll_7aff549c98b978433226 ***!
@@ -10742,104 +10651,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/Components/Atoms/Button.jsx":
-/*!*******************************************!*\
-  !*** ./pages/Components/Atoms/Button.jsx ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types-exact */ "./node_modules/prop-types-exact/build/index.js");
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_required_if__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-required-if */ "./node_modules/react-required-if/index.js");
-/* harmony import */ var react_required_if__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_required_if__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-var propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default()({
-  blockName: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  buttonType: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  elementType: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOf(['button', 'link']),
-  handleClick: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
-  isDisabled: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  isLoading: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  modifier: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
-  url: react_required_if__WEBPACK_IMPORTED_MODULE_4___default()(prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string, function (props) {
-    return props.elementType === 'link';
-  })
-});
-var defaultProps = {
-  blockName: null,
-  buttonType: 'button',
-  elementType: 'button',
-  isDisabled: false,
-  isLoading: false,
-  modifier: 'ghost'
-};
-
-function Button(props) {
-  var blockName = props.blockName,
-      buttonType = props.buttonType,
-      elementType = props.elementType,
-      handleClick = props.handleClick,
-      isDisabled = props.isDisabled,
-      isLoading = props.isLoading,
-      modifier = props.modifier,
-      text = props.text,
-      url = props.url;
-  var buttonClasses = classnames__WEBPACK_IMPORTED_MODULE_0___default()(blockName, 'Button', "Button-".concat(modifier), {
-    disabled: isDisabled,
-    loading: isLoading
-  });
-
-  if (elementType === 'button') {
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
-      type: buttonType,
-      onClick: handleClick,
-      className: buttonClasses,
-      disabled: isDisabled
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-      className: "Button_text"
-    }, text), isLoading && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loading"
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    })));
-  }
-
-  if (props.elementType === 'link') {
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("a", {
-      href: url,
-      className: buttonClasses
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-      className: "Button_text"
-    }, text));
-  }
-}
-
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
-/* harmony default export */ __webpack_exports__["default"] = (Button);
-
-/***/ }),
-
 /***/ "./pages/Components/Homepage/ImageSplit.jsx":
 /*!**************************************************!*\
   !*** ./pages/Components/Homepage/ImageSplit.jsx ***!
@@ -10855,10 +10666,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Atoms_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Atoms/Button */ "./pages/Components/Atoms/Button.jsx");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
-
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -10895,7 +10704,7 @@ function ImageSplit(props) {
     className: "ImageSplit_innerText"
   }, innerText), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: "ImageSplit_actions"
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
     href: "/events"
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
     className: "Button ImageSplit_button"
@@ -11013,10 +10822,10 @@ var propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_7___default()({
 var defaultProps = {
   accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
   tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=yogi',
-  introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
-  pageTitle: 'Page Title',
-  subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
-  title: "Test Title"
+  introText: 'We are bringing the social side of the Health and Wellness to you. Make new friends while attending a health and wellness-focused event. Find the best deals for local coffee shops and restaurants to meet up with like-minded individuals. Explore the variety of health and wellness businesses near you, including local gyms and sportswear shops, alongside getting some healthy food inspiration.',
+  pageTitle: 'Welcome to the Wellness Web App',
+  subtext: 'Bringing the social side of Health & Wellness Industry to you',
+  title: "WELLNESS WEB APP"
 };
 
 var HomePage =
@@ -11203,7 +11012,7 @@ var App = function App() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 5:
 /*!*********************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fsarahdonoghue%2FDocuments%2FProjects%2Fwellness-events-app%2Fpages%2Findex.js ***!
   \*********************************************************************************************************************************************************/
@@ -11226,5 +11035,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[5,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

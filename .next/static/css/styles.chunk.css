@@ -96,18 +96,6 @@ p {
   p:last-child {
     margin-bottom: 0; }
 
-@font-face {
-  font-family: "TurquoiseBody";
-  font-weight: normal;
-  src: url("/dist/fonts/37E939_0.woff") format("opentype");
-  font-style: normal; }
-
-@font-face {
-  font-family: "TurquoiseBody";
-  font-weight: normal;
-  src: url("/dist/fonts/37E939_0.woff2") format("opentype");
-  font-style: normal; }
-
 .Button {
   overflow: hidden;
   white-space: nowrap;
@@ -242,6 +230,7 @@ p {
   .EventDetails_address {
     display: flex;
     flex-flow: column;
+    align-items: flex-end;
     font-weight: 600; }
   .EventDetails_capacity {
     text-transform: uppercase;
@@ -766,13 +755,15 @@ p {
     height: 500px;
     width: 56.25%;
     margin-left: 8rem;
-    background: #ccc; }
+    background: lightblue; }
     @media screen and (max-width: 767px) {
       .ImageSplit_imageContainer {
         order: 1; } }
   .ImageSplit_image {
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat; }
   .ImageSplit_textContent {
     display: flex;
     flex-flow: column;

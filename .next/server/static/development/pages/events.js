@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -911,9 +911,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-places-autocomplete */ "react-places-autocomplete");
 /* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _EventsResults__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EventsResults */ "./pages/components/EventSearch/EventsResults.jsx");
-/* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vm */ "vm");
-/* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vm__WEBPACK_IMPORTED_MODULE_8__);
-
 
 
 
@@ -935,7 +932,8 @@ const propTypes = {
 };
 const defaultProps = {
   dateLabel: 'When',
-  eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  // eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  eventbriteApiKey: '34KC3DZI63QGVN6RGLEA',
   eventbriteLink: 'https://www.eventbriteapi.com/v3/events/search/?',
   locationLabel: 'City',
   paragraph: 'Use the search bar above to find your ideal wellness event.',
@@ -1068,6 +1066,7 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
         const toDate = moment__WEBPACK_IMPORTED_MODULE_5___default()(enteredTo).format('YYYY-MM-DD');
         const searchToDate = `${toDate}T00:00:01Z`;
         fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`).then(response => {
+          debugger;
           return response.json();
         }).then(data => {
           this.setState({
@@ -1103,7 +1102,8 @@ class EventSearch extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
 
       if (selected === 'All') {
         this.setState({
-          events: eventsFilterCopy
+          events: eventsFilterCopy,
+          selectedFilter: selected
         });
       }
 
@@ -1468,7 +1468,7 @@ Events.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!********************************!*\
   !*** multi ./pages/events.jsx ***!
   \********************************/
@@ -1642,17 +1642,6 @@ module.exports = require("react-places-autocomplete");
 /***/ (function(module, exports) {
 
 module.exports = require("url");
-
-/***/ }),
-
-/***/ "vm":
-/*!*********************!*\
-  !*** external "vm" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("vm");
 
 /***/ })
 

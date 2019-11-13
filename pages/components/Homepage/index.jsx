@@ -16,10 +16,10 @@ const propTypes = exact({
 const defaultProps = {
   accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
   tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=yogi',
-  introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
-  pageTitle: 'Page Title',
-  subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
-  title: "Test Title",
+  introText: 'We are bringing the social side of the Health and Wellness to you. Make new friends while attending a health and wellness-focused event. Find the best deals for local coffee shops and restaurants to meet up with like-minded individuals. Explore the variety of health and wellness businesses near you, including local gyms and sportswear shops, alongside getting some healthy food inspiration.',
+  pageTitle: 'Welcome to the Wellness Web App',
+  subtext: 'Bringing the social side of Health & Wellness Industry to you',
+  title: "WELLNESS WEB APP",
 }
 
 

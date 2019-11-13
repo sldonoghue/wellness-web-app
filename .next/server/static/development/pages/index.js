@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -798,104 +798,6 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 /***/ }),
 
-/***/ "./pages/Components/Atoms/Button.jsx":
-/*!*******************************************!*\
-  !*** ./pages/Components/Atoms/Button.jsx ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "classnames");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types-exact */ "prop-types-exact");
-/* harmony import */ var prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types_exact__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_required_if__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-required-if */ "react-required-if");
-/* harmony import */ var react_required_if__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_required_if__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
-
-const propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default()({
-  blockName: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  buttonType: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  elementType: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.oneOf(['button', 'link']),
-  handleClick: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.func,
-  isDisabled: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  isLoading: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.bool,
-  modifier: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string,
-  text: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string.isRequired,
-  url: react_required_if__WEBPACK_IMPORTED_MODULE_4___default()(prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.string, props => props.elementType === 'link')
-});
-const defaultProps = {
-  blockName: null,
-  buttonType: 'button',
-  elementType: 'button',
-  isDisabled: false,
-  isLoading: false,
-  modifier: 'ghost'
-};
-
-function Button(props) {
-  const {
-    blockName,
-    buttonType,
-    elementType,
-    handleClick,
-    isDisabled,
-    isLoading,
-    modifier,
-    text,
-    url
-  } = props;
-  const buttonClasses = classnames__WEBPACK_IMPORTED_MODULE_0___default()(blockName, 'Button', `Button-${modifier}`, {
-    disabled: isDisabled,
-    loading: isLoading
-  });
-
-  if (elementType === 'button') {
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
-      type: buttonType,
-      onClick: handleClick,
-      className: buttonClasses,
-      disabled: isDisabled
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-      className: "Button_text"
-    }, text), isLoading && react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loading"
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      className: "Button_loadingItem"
-    })));
-  }
-
-  if (props.elementType === 'link') {
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("a", {
-      href: url,
-      className: buttonClasses
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("span", {
-      className: "Button_text"
-    }, text));
-  }
-}
-
-Button.propTypes = propTypes;
-Button.defaultProps = defaultProps;
-/* harmony default export */ __webpack_exports__["default"] = (Button);
-
-/***/ }),
-
 /***/ "./pages/Components/Homepage/ImageSplit.jsx":
 /*!**************************************************!*\
   !*** ./pages/Components/Homepage/ImageSplit.jsx ***!
@@ -911,10 +813,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Atoms_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Atoms/Button */ "./pages/Components/Atoms/Button.jsx");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
-
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -953,7 +853,7 @@ function ImageSplit(props) {
     className: "ImageSplit_innerText"
   }, innerText), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: "ImageSplit_actions"
-  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
     href: "/events"
   }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
     className: "Button ImageSplit_button"
@@ -1059,10 +959,10 @@ const propTypes = prop_types_exact__WEBPACK_IMPORTED_MODULE_1___default()({
 const defaultProps = {
   accessToken: 'Wsd6sfe1uHkckn8sbelD4ws8QCAUxUXAg5GvcAYJowIsW4YpB3',
   tumblrApi: 'https://api.tumblr.com/v2/tagged?tag=yogi',
-  introText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam enim leo, fringilla non ornare nec, feugiat a mi. Nullam vehicula purus ut tellus semper iaculis. Sed congue ornare justo et porta. Morbi finibus arcu diam, nec porttitor quam interdum vel. Cras ut finibus mauris. Praesent id blandit ex. Aenean finibus consequat erat, a elementum ligula feugiat eu.',
-  pageTitle: 'Page Title',
-  subtext: 'Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.',
-  title: "Test Title"
+  introText: 'We are bringing the social side of the Health and Wellness to you. Make new friends while attending a health and wellness-focused event. Find the best deals for local coffee shops and restaurants to meet up with like-minded individuals. Explore the variety of health and wellness businesses near you, including local gyms and sportswear shops, alongside getting some healthy food inspiration.',
+  pageTitle: 'Welcome to the Wellness Web App',
+  subtext: 'Bringing the social side of Health & Wellness Industry to you',
+  title: "WELLNESS WEB APP"
 };
 
 class HomePage extends react__WEBPACK_IMPORTED_MODULE_3__["Component"] {
@@ -1234,7 +1134,7 @@ const App = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("di
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -1243,17 +1143,6 @@ const App = () => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("di
 
 module.exports = __webpack_require__(/*! /Users/sarahdonoghue/Documents/Projects/wellness-events-app/pages/index.js */"./pages/index.js");
 
-
-/***/ }),
-
-/***/ "classnames":
-/*!*****************************!*\
-  !*** external "classnames" ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("classnames");
 
 /***/ }),
 
@@ -1386,17 +1275,6 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
-
-/***/ }),
-
-/***/ "react-required-if":
-/*!************************************!*\
-  !*** external "react-required-if" ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("react-required-if");
 
 /***/ }),
 
