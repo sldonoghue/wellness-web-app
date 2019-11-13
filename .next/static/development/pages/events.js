@@ -30832,166 +30832,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/vm-browserify/index.js":
-/*!*********************************************!*\
-  !*** ./node_modules/vm-browserify/index.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var indexOf = function (xs, item) {
-    if (xs.indexOf) return xs.indexOf(item);
-    else for (var i = 0; i < xs.length; i++) {
-        if (xs[i] === item) return i;
-    }
-    return -1;
-};
-var Object_keys = function (obj) {
-    if (Object.keys) return Object.keys(obj)
-    else {
-        var res = [];
-        for (var key in obj) res.push(key)
-        return res;
-    }
-};
-
-var forEach = function (xs, fn) {
-    if (xs.forEach) return xs.forEach(fn)
-    else for (var i = 0; i < xs.length; i++) {
-        fn(xs[i], i, xs);
-    }
-};
-
-var defineProp = (function() {
-    try {
-        Object.defineProperty({}, '_', {});
-        return function(obj, name, value) {
-            Object.defineProperty(obj, name, {
-                writable: true,
-                enumerable: false,
-                configurable: true,
-                value: value
-            })
-        };
-    } catch(e) {
-        return function(obj, name, value) {
-            obj[name] = value;
-        };
-    }
-}());
-
-var globals = ['Array', 'Boolean', 'Date', 'Error', 'EvalError', 'Function',
-'Infinity', 'JSON', 'Math', 'NaN', 'Number', 'Object', 'RangeError',
-'ReferenceError', 'RegExp', 'String', 'SyntaxError', 'TypeError', 'URIError',
-'decodeURI', 'decodeURIComponent', 'encodeURI', 'encodeURIComponent', 'escape',
-'eval', 'isFinite', 'isNaN', 'parseFloat', 'parseInt', 'undefined', 'unescape'];
-
-function Context() {}
-Context.prototype = {};
-
-var Script = exports.Script = function NodeScript (code) {
-    if (!(this instanceof Script)) return new Script(code);
-    this.code = code;
-};
-
-Script.prototype.runInContext = function (context) {
-    if (!(context instanceof Context)) {
-        throw new TypeError("needs a 'context' argument.");
-    }
-    
-    var iframe = document.createElement('iframe');
-    if (!iframe.style) iframe.style = {};
-    iframe.style.display = 'none';
-    
-    document.body.appendChild(iframe);
-    
-    var win = iframe.contentWindow;
-    var wEval = win.eval, wExecScript = win.execScript;
-
-    if (!wEval && wExecScript) {
-        // win.eval() magically appears when this is called in IE:
-        wExecScript.call(win, 'null');
-        wEval = win.eval;
-    }
-    
-    forEach(Object_keys(context), function (key) {
-        win[key] = context[key];
-    });
-    forEach(globals, function (key) {
-        if (context[key]) {
-            win[key] = context[key];
-        }
-    });
-    
-    var winKeys = Object_keys(win);
-
-    var res = wEval.call(win, this.code);
-    
-    forEach(Object_keys(win), function (key) {
-        // Avoid copying circular objects like `top` and `window` by only
-        // updating existing context properties or new properties in the `win`
-        // that was only introduced after the eval.
-        if (key in context || indexOf(winKeys, key) === -1) {
-            context[key] = win[key];
-        }
-    });
-
-    forEach(globals, function (key) {
-        if (!(key in context)) {
-            defineProp(context, key, win[key]);
-        }
-    });
-    
-    document.body.removeChild(iframe);
-    
-    return res;
-};
-
-Script.prototype.runInThisContext = function () {
-    return eval(this.code); // maybe...
-};
-
-Script.prototype.runInNewContext = function (context) {
-    var ctx = Script.createContext(context);
-    var res = this.runInContext(ctx);
-
-    if (context) {
-        forEach(Object_keys(ctx), function (key) {
-            context[key] = ctx[key];
-        });
-    }
-
-    return res;
-};
-
-forEach(Object_keys(Script.prototype), function (name) {
-    exports[name] = Script[name] = function (code) {
-        var s = Script(code);
-        return s[name].apply(s, [].slice.call(arguments, 1));
-    };
-});
-
-exports.isContext = function (context) {
-    return context instanceof Context;
-};
-
-exports.createScript = function (code) {
-    return exports.Script(code);
-};
-
-exports.createContext = Script.createContext = function (context) {
-    var copy = new Context();
-    if(typeof context === 'object') {
-        forEach(Object_keys(context), function (key) {
-            copy[key] = context[key];
-        });
-    }
-    return copy;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/webpack/buildin/global.js":
 /*!******************************************************************************************************!*\
   !*** delegated ./node_modules/webpack/buildin/global.js from dll-reference dll_7aff549c98b978433226 ***!
@@ -31188,9 +31028,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-places-autocomplete */ "./node_modules/react-places-autocomplete/dist/index.js");
 /* harmony import */ var react_places_autocomplete__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _EventsResults__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./EventsResults */ "./pages/components/EventSearch/EventsResults.jsx");
-/* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vm */ "./node_modules/vm-browserify/index.js");
-/* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(vm__WEBPACK_IMPORTED_MODULE_14__);
-
 
 
 
@@ -31218,7 +31055,8 @@ var propTypes = {
 };
 var defaultProps = {
   dateLabel: 'When',
-  eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  // eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  eventbriteApiKey: '34KC3DZI63QGVN6RGLEA',
   eventbriteLink: 'https://www.eventbriteapi.com/v3/events/search/?',
   locationLabel: 'City',
   paragraph: 'Use the search bar above to find your ideal wellness event.',
@@ -31360,6 +31198,7 @@ function (_Component) {
         var toDate = moment__WEBPACK_IMPORTED_MODULE_11___default()(enteredTo).format('YYYY-MM-DD');
         var searchToDate = "".concat(toDate, "T00:00:01Z");
         fetch("".concat(eventbriteLink, "start_date.range_start=").concat(searchFromDate, "&start_date.range_end=").concat(searchToDate, "&location.longitude=").concat(latLng.lng, "&location.latitude=").concat(latLng.lat, "&categories=108&token=").concat(eventbriteApiKey)).then(function (response) {
+          debugger;
           return response.json();
         }).then(function (data) {
           _this.setState({
@@ -31400,7 +31239,8 @@ function (_Component) {
 
       if (selected === 'All') {
         _this.setState({
-          events: eventsFilterCopy
+          events: eventsFilterCopy,
+          selectedFilter: selected
         });
       }
 
@@ -31789,7 +31629,7 @@ Events.defaultProps = defaultProps;
 
 /***/ }),
 
-/***/ 0:
+/***/ 4:
 /*!*****************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fevents&absolutePagePath=%2FUsers%2Fsarahdonoghue%2FDocuments%2FProjects%2Fwellness-events-app%2Fpages%2Fevents.jsx ***!
   \*****************************************************************************************************************************************************************/
@@ -31812,5 +31652,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
+},[[4,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=events.js.map

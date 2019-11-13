@@ -31,7 +31,7 @@
     height: 500px;
     width: 56.25%;
     margin-left: 8rem;
-    background: map-get($colors, "grey");
+    background: lightblue;
 
     @include below(tablet) {
       order: 1;
@@ -41,6 +41,9 @@
   &_image {
     height: 100%;
     width: 100%;
+    // background-image: url('/static/images/wellness_events_placeholder.png');
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &_textContent{

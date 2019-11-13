@@ -116,24 +116,12 @@ class EventDetails extends Component {
                       </div>
                     )
                   }
-                  {eventData[0].capacity !== null
-                    && (
-                      <>
-                        <div className="EventsDetails_capacity">
-                          {`Number of tickets available:`}
-                        </div>
-                        <div className="EventsDetails_capacity">
-                          {`Total number of tickets:`}
-                        </div>
-                      </>
-                    )
-                  }
                   <div className="EventDetails_price">
                     {eventPrice}
                   </div>
                 </div>
                 <div className="EventDetails_actions">
-                  <a className="Button EventDetails_button" target="_blank" href={eventData[0].url}>
+                  <a className="Button EventDetails_button" href={eventData[0].url}>
                     {buttonText}
                   </a>
                 </div>

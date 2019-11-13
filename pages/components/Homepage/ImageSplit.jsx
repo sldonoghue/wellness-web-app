@@ -2,8 +2,6 @@ import exact from 'prop-types-exact';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Button from '../Atoms/Button';
-
 import Link from 'next/link';
 
 const propTypes = {

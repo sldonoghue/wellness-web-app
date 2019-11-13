@@ -8,7 +8,6 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
 
 import EventsResults from './EventsResults';
-import { runInThisContext } from 'vm';
 
 // https://react-day-picker.js.org/examples/selected-range-enter
 const propTypes = {
@@ -23,7 +22,8 @@ const propTypes = {
 
 const defaultProps = {
   dateLabel: 'When',
-  eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  // eventbriteApiKey: 'E3FPRWVRIRN63ML427UJ',
+  eventbriteApiKey: '34KC3DZI63QGVN6RGLEA',
   eventbriteLink: 'https://www.eventbriteapi.com/v3/events/search/?',
   locationLabel: 'City',
   paragraph: 'Use the search bar above to find your ideal wellness event.',
@@ -149,6 +149,7 @@ class EventSearch extends Component {
 
       fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
       .then(response => {
+        debugger
         return response.json();
       }).then(data => {
         this.setState({
@@ -183,7 +184,10 @@ class EventSearch extends Component {
     const totalEvents = eventsFilterCopy;
     
     if(selected === 'All') {
-      this.setState({events: eventsFilterCopy})
+      this.setState({
+        events: eventsFilterCopy,
+        selectedFilter: selected
+      })
     }
    
     if(selected === 'Free') {
