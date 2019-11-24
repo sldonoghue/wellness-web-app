@@ -24,3 +24,10 @@ app
     console.error(ex.stack);
     process.exit(1);
   });
+
+//   app.use(function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', "*");
+//     res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     next();
+// })

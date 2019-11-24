@@ -1,5 +1,5 @@
 import React from "react";
-// try import * from components
+
 import Footer from './components/Footer';
 import Head from 'next/head';
 import Homepage from './Components/Homepage';

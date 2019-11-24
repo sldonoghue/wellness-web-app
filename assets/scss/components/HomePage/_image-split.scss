@@ -36,6 +36,11 @@
     @include below(tablet) {
       order: 1;
     }
+
+    @include below(mobile-large) {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 
   &_image {
@@ -52,6 +57,11 @@
     justify-content: center;
     height: 100%;
     padding: 0 8rem;
+
+    @include below(mobile-large) {
+      padding: 0;
+      margin-top: 1rem;
+    }
   }
 
 
@@ -79,6 +89,10 @@
     margin-top: 3rem;
     width: 100%;
     flex: 0 0 auto;
+
+    @include below(mobile-large) {
+      display: flex;
+    }
   }
 
   &_button {
@@ -90,6 +104,11 @@
 
     &:hover {
       background-color: map-get($brand-colors, "primary-active");
+    }
+
+    @include below(mobile-large) {
+      width: 100%;
+      text-align: center;
     }
   }
 }

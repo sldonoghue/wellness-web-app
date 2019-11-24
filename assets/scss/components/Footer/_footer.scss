@@ -2,7 +2,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 65px;
+  min-height: 65px;
   width: 100%;
   background-color: map-get($brand-colors, "primary-dark");
 
@@ -13,6 +13,11 @@
     justify-content: space-between;
     margin-top: 1.3rem;
     padding: 0 6.5rem;
+
+    @include below(mobile-large) {
+      flex-flow: column;
+      text-align: center;
+    }
   }
 
   &_link {
@@ -21,5 +26,11 @@
     font-weight: 500;
     text-transform: uppercase;
     list-style: none;
+
+    & + & {
+      @include below(mobile-large) {
+        margin-top: 1rem;
+      }
+    }
   }
 }
