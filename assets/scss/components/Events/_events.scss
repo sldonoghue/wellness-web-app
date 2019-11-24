@@ -5,6 +5,10 @@
     position: relative;
     height: 54.5rem;
     width: 100%;
+
+    @include below(desktop) {
+      height: 32.5rem;
+    }
   }
 
   &_heroImage {

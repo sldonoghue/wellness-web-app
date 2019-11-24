@@ -7,10 +7,11 @@ import Inspiration from './Inspiration';
 
 const propTypes = exact({
   accessToken: PropTypes.string,
-  tumblrApi: PropTypes.string,
+  introText: PropTypes.string,
   pageTitle: PropTypes.string,
   subtext: PropTypes.string,
   title: PropTypes.string,
+  tumblrApi: PropTypes.string,
 })
 
 const defaultProps = {

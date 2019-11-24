@@ -1,6 +1,10 @@
 .EventDetails {
   padding-bottom: 10rem;
 
+  @include below(tablet) {
+    padding-bottom: 13rem;
+  }
+
   &_imageContainer {
     position: relative;
     height: 28rem;
@@ -28,6 +32,10 @@
     font-weight: 600;
     font-size: 2rem;
     text-transform: uppercase;
+
+    @include below(mobile-large) {
+      padding: 1rem;
+    }
   }
 
   &_eventInfo {
@@ -37,7 +45,13 @@
     align-items: center;
     width: 100%;
     padding: 1rem 3rem;
-    background-color: map-get($colors, "grey-ultra-light")
+    background-color: map-get($colors, "grey-ultra-light");
+
+    @include below(mobile-large) {
+      flex-flow: column;
+      align-items: baseline;
+      padding: 1rem;
+    }
   }
 
   &_time {
@@ -51,6 +65,10 @@
   &_actions {
     display: flex;
     margin-top: 0.5rem;
+
+    @include below(mobile-large) {
+      width: 100%;
+    }
   }
 
   &_button {
@@ -65,6 +83,10 @@
     &:hover {
       background-color: map-get($brand-colors, "primary-active");
     }
+
+    @include below(mobile-large) {
+      width: 100%;
+    }
   }
 
   &_address {
@@ -72,6 +94,11 @@
     flex-flow: column;
     align-items: flex-end;
     font-weight: 600;
+
+    @include below(mobile-large) {
+      margin-top: 0.5rem;
+      align-items: flex-start;
+    }
   }
 
   &_capacity {
@@ -103,6 +130,12 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+
+    & + & {
+      @include below(desktop) {
+        margin-top: 2rem;
+      }
+    }
   }
 
   &_friendTitle {
@@ -112,6 +145,10 @@
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
+
+    @include below(mobile-large) {
+      width: 80%;
+    }
   }
 
   &_friendList {
@@ -129,8 +166,7 @@
     height: 80px;
     width: 80px;
     border-radius: 50px;
-    background: lightblue;
+    background: map-get($brand-colors, "primary");
     margin: 1rem;
-
   }
 }

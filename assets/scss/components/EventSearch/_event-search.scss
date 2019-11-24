@@ -18,6 +18,20 @@
     transform: translateY(-50%);
     border: 1px solid map-get($colors, "grey");
     border-radius: 5px;
+
+    @include below(desktop) {
+      flex-flow: column;
+    }
+
+    @include below(tablet) {
+      left: 2.5rem;
+      width: 90%;
+    }
+
+    @include below(mobile-large) {
+      left: 0;
+      width: 100%;
+    }
   }
 
   &_searchFilter {
@@ -28,6 +42,10 @@
 
     & + & {
       border-left : 1px solid grey;
+    }
+
+    @include below(desktop) {
+      margin: 1rem 0;
     }
   }
 
@@ -58,6 +76,10 @@
 
     &:hover {
       background-color: map-get($brand-colors, "primary-active");
+    }
+
+    @include below(desktop) {
+      width: 100%;
     }
   }
 
@@ -91,6 +113,11 @@
     margin-top: 0.4rem;
     background-color: map-get($colors, "white");
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+
+    @include below(desktop) {
+      z-index: 10;
+      width: 80%;
+    }
   }
 
   &_suggestion {
@@ -107,6 +134,10 @@
     flex-flow: column;
     align-items: center;
     margin-top: 5rem;
+
+    @include below(desktop) {
+      margin-top: 10rem;
+    }
   }
 
   &_loadingContent {
@@ -145,12 +176,20 @@
     @include heading-two;
     width: 500px;
     text-align: center;
+
+    @include below(mobile-large) {
+      width: 80%;
+    }
   }
 
   &_paragraph {
     margin-top: 2rem;
     color: map-get($colors, "text-dark");
     font-size: 1.2rem;
+    
+    @include below(mobile-large) {
+      width: 80%;
+    }
   }
 
   &_required {
@@ -172,6 +211,10 @@
 
     &:hover {
       border: 1px solid map-get($brand-colors, "primary-active");
+    }
+
+    @include below(mobile-large) {
+      margin-top: 1rem;
     }
   }
 }

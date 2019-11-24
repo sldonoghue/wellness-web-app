@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server/index.js",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -34,6 +34,7 @@
     "next-images": "^1.2.0",
     "node-sass": "^4.12.0",
     "prop-types-exact": "^1.2.0",
+    "query-string": "^6.9.0",
     "react": "^16.8.6",
     "react-day-picker": "^7.3.2",
     "react-dependent-script": "^1.1.2",
@@ -41,5 +42,6 @@
     "react-load-script": "0.0.6",
     "react-places-autocomplete": "^7.2.1",
     "react-required-if": "^1.0.3"
-  }
+  },
+  "proxy": "https://www.eventbriteapi.com/v3/events/search/"
 }

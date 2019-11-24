@@ -45,6 +45,7 @@ class EventSearch extends Component {
       from: null,
       latLng: null,
       loading: false,
+      noResults: false,
       selectedDates: 'Anytime',
       selectedFilter: 'All',
       to: null,
@@ -146,8 +147,33 @@ class EventSearch extends Component {
 
       const toDate = moment(enteredTo).format('YYYY-MM-DD');
       const searchToDate = `${toDate}T00:00:01Z`;
-
+      
       fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
+      .then(response => {
+        debugger
+        return response.json();
+      }).then(data => {
+        this.setState({
+          events: data.events,
+          eventsFilterCopy: data.events,
+          loading: false,
+          selectedFilter: 'All'
+        }, () => {
+          if (data.events === 0) {
+            this.setState({
+              noResultsMessage: 'There are no wellness events in your selected location. PLease choose a different location.'
+            })
+          }
+        })
+      })
+      .catch(error => console.log('Error', error));
+    }
+
+    if(locationValue && !from) {
+      const currentDate = moment().format('YYYY-MM-DD');
+      const searchFromDate = `${currentDate}T00:00:01Z`;
+
+      fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
       .then(response => {
         debugger
         return response.json();
@@ -161,24 +187,11 @@ class EventSearch extends Component {
       })
       .catch(error => console.log('Error', error));
     }
-
-    if(locationValue && !from) {
-      const currentDate = moment().format('YYYY-MM-DD');
-      const searchFromDate = `${currentDate}T00:00:01Z`;
-
-      fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
-      .then(response => {
-        return response.json();
-      }).then(data => {
-        this.setState({events: data.events})
-      })
-      .catch(error => console.log('Error', error));
-    }
   }
 
 
   handleFilter = (event) => {
-    let { events, eventsFilterCopy, selectedFilter } = this.state;
+    let { eventsFilterCopy } = this.state;
     
     const selected = event.currentTarget.value;
     const totalEvents = eventsFilterCopy;
@@ -222,9 +235,8 @@ class EventSearch extends Component {
 
   render() {
     const { dateLabel, locationLabel, paragraph, searchButtonText, title } = this.props;
-    const { activeDatePicker, enteredTo, events, from, locationValue, loading, requiredMessage, selectedDates, to, visibleItems } = this.state;
+    const { activeDatePicker, enteredTo, events, from, locationValue, loading, noResultsMessage, requiredMessage, selectedDates } = this.state;
     const modifiers = { start: from, end: enteredTo };
-    const disabledDays = { before: from };
     const selectedDays = [from, { from, to: enteredTo }];
     const today = new Date();
 
@@ -306,7 +318,7 @@ class EventSearch extends Component {
         </div>
         <div className="EventSearch_resultsContainer">
           <>
-            {(events.length === 0 && !loading)
+            {(!noResultsMessage && !loading && events.length === 0)
               && 
               (
                 <>
@@ -348,6 +360,18 @@ class EventSearch extends Component {
                     </div>
                   </div>
                 </section>
+              )
+            }
+            {(noResultsMessage && !loading && events.length === 0)
+              && (
+                <>
+                  <h2 className="EventSearch_title">
+                    {title}
+                  </h2>
+                  <div className="EventSearch_paragraph">
+                    {noResultsMessage}
+                  </div>
+                </>
               )
             }
             {(events.length > 0 && !loading)
