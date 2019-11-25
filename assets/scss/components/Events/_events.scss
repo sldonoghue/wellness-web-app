@@ -14,7 +14,8 @@
   &_heroImage {
     position: relative;
     height: 100%;
-    background-color: grey;
+    background-color:map-get($colors, "blue-light");
+    opacity: 0.5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +25,10 @@
     position: absolute;
     top: 50%;
     left: 10%;
-    color: map-get($colors, "white");
+    padding: 2rem;
+    border-radius: 10px;
+    color: map-get($brand-colors, "primary");
+    background-color: map-get($colors, "white");
     text-align: center;
   }
 

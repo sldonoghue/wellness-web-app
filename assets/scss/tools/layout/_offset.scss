@@ -1,8 +1,0 @@
-@mixin offset($fraction: 1) {
-  @if type-of($fraction) != number or not unitless($fraction) {
-    @include error("#{$fraction} is not a unitless number");
-  }
-
-  // Offset styles
-  margin-left: percentage($fraction);
-}

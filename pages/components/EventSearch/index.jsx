@@ -43,6 +43,7 @@ class EventSearch extends Component {
       locationValue: '',
       enteredTo: null,
       from: null,
+      gotResults: false,
       latLng: null,
       loading: false,
       noResults: false,
@@ -150,20 +151,14 @@ class EventSearch extends Component {
       
       fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&start_date.range_end=${searchToDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
       .then(response => {
-        debugger
         return response.json();
       }).then(data => {
         this.setState({
           events: data.events,
           eventsFilterCopy: data.events,
           loading: false,
-          selectedFilter: 'All'
-        }, () => {
-          if (data.events === 0) {
-            this.setState({
-              noResultsMessage: 'There are no wellness events in your selected location. PLease choose a different location.'
-            })
-          }
+          selectedFilter: 'All',
+          gotResults: true,
         })
       })
       .catch(error => console.log('Error', error));
@@ -175,14 +170,14 @@ class EventSearch extends Component {
 
       fetch(`${eventbriteLink}start_date.range_start=${searchFromDate}&location.longitude=${latLng.lng}&location.latitude=${latLng.lat}&categories=108&token=${eventbriteApiKey}`)
       .then(response => {
-        debugger
         return response.json();
       }).then(data => {
         this.setState({
           events: data.events,
           eventsFilterCopy: data.events,
           loading: false,
-          selectedFilter: 'All'
+          selectedFilter: 'All',
+          gotResults: true,
         })
       })
       .catch(error => console.log('Error', error));
@@ -235,7 +230,7 @@ class EventSearch extends Component {
 
   render() {
     const { dateLabel, locationLabel, paragraph, searchButtonText, title } = this.props;
-    const { activeDatePicker, enteredTo, events, from, locationValue, loading, noResultsMessage, requiredMessage, selectedDates } = this.state;
+    const { activeDatePicker, enteredTo, events, from, gotResults, locationValue, loading, requiredMessage, selectedDates } = this.state;
     const modifiers = { start: from, end: enteredTo };
     const selectedDays = [from, { from, to: enteredTo }];
     const today = new Date();
@@ -318,7 +313,7 @@ class EventSearch extends Component {
         </div>
         <div className="EventSearch_resultsContainer">
           <>
-            {(!noResultsMessage && !loading && events.length === 0)
+            {(!gotResults && !loading)
               && 
               (
                 <>
@@ -331,6 +326,17 @@ class EventSearch extends Component {
                 </>
               )
             }
+            {(gotResults && !loading) && events.length === 0
+              && (
+                <>
+                  <h2 className="EventSearch_title">
+                    {title}
+                  </h2>
+                  <div className="EventSearch_paragraph">
+                    There are no wellness events in your chosen location. Please enter an alternative location.
+                  </div>
+                </>
+              )}
             {loading
               && (
                 <section className="EventSearch_loadingContent">
@@ -360,18 +366,6 @@ class EventSearch extends Component {
                     </div>
                   </div>
                 </section>
-              )
-            }
-            {(noResultsMessage && !loading && events.length === 0)
-              && (
-                <>
-                  <h2 className="EventSearch_title">
-                    {title}
-                  </h2>
-                  <div className="EventSearch_paragraph">
-                    {noResultsMessage}
-                  </div>
-                </>
               )
             }
             {(events.length > 0 && !loading)

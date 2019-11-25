@@ -31305,20 +31305,14 @@ function (_Component) {
         var toDate = moment__WEBPACK_IMPORTED_MODULE_12___default()(enteredTo).format('YYYY-MM-DD');
         var searchToDate = "".concat(toDate, "T00:00:01Z");
         fetch("".concat(eventbriteLink, "start_date.range_start=").concat(searchFromDate, "&start_date.range_end=").concat(searchToDate, "&location.longitude=").concat(latLng.lng, "&location.latitude=").concat(latLng.lat, "&categories=108&token=").concat(eventbriteApiKey)).then(function (response) {
-          debugger;
           return response.json();
         }).then(function (data) {
           _this.setState({
             events: data.events,
             eventsFilterCopy: data.events,
             loading: false,
-            selectedFilter: 'All'
-          }, function () {
-            if (data.events === 0) {
-              _this.setState({
-                noResultsMessage: 'There are no wellness events in your selected location. PLease choose a different location.'
-              });
-            }
+            selectedFilter: 'All',
+            gotResults: true
           });
         })["catch"](function (error) {
           return console.log('Error', error);
@@ -31331,14 +31325,14 @@ function (_Component) {
         var _searchFromDate = "".concat(currentDate, "T00:00:01Z");
 
         fetch("".concat(eventbriteLink, "start_date.range_start=").concat(_searchFromDate, "&location.longitude=").concat(latLng.lng, "&location.latitude=").concat(latLng.lat, "&categories=108&token=").concat(eventbriteApiKey)).then(function (response) {
-          debugger;
           return response.json();
         }).then(function (data) {
           _this.setState({
             events: data.events,
             eventsFilterCopy: data.events,
             loading: false,
-            selectedFilter: 'All'
+            selectedFilter: 'All',
+            gotResults: true
           });
         })["catch"](function (error) {
           return console.log('Error', error);
@@ -31395,6 +31389,7 @@ function (_Component) {
       locationValue: '',
       enteredTo: null,
       from: null,
+      gotResults: false,
       latLng: null,
       loading: false,
       noResults: false,
@@ -31419,9 +31414,9 @@ function (_Component) {
           enteredTo = _this$state5.enteredTo,
           events = _this$state5.events,
           from = _this$state5.from,
+          gotResults = _this$state5.gotResults,
           locationValue = _this$state5.locationValue,
           loading = _this$state5.loading,
-          noResultsMessage = _this$state5.noResultsMessage,
           requiredMessage = _this$state5.requiredMessage,
           selectedDates = _this$state5.selectedDates;
       var modifiers = {
@@ -31437,21 +31432,21 @@ function (_Component) {
         className: "EventSearch",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 244
+          lineNumber: 239
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 245
+          lineNumber: 240
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_searchBar",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 246
+          lineNumber: 241
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
@@ -31459,28 +31454,28 @@ function (_Component) {
         onClick: this.handleDatePicker,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 247
+          lineNumber: 242
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 248
+          lineNumber: 243
         },
         __self: this
       }, dateLabel), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_value",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 251
+          lineNumber: 246
         },
         __self: this
       }, selectedDates)), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: activeDatePicker ? 'EventSearch_datePicker EventSearch_datePicker-active' : 'EventSearch_datePicker',
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 255
+          lineNumber: 250
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react_day_picker__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -31496,7 +31491,7 @@ function (_Component) {
         onDayMouseEnter: this.handleDayMouseEnter,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 256
+          lineNumber: 251
         },
         __self: this
       })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
@@ -31504,14 +31499,14 @@ function (_Component) {
         onClick: this.handleCloseDatePicker,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 268
+          lineNumber: 263
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 269
+          lineNumber: 264
         },
         __self: this
       }, locationLabel), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react_places_autocomplete__WEBPACK_IMPORTED_MODULE_13___default.a, {
@@ -31520,7 +31515,7 @@ function (_Component) {
         onSelect: this.handleLocationSelect,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 273
+          lineNumber: 268
         },
         __self: this
       }, function (_ref) {
@@ -31531,7 +31526,7 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 279
+            lineNumber: 274
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("input", Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, getInputProps({
@@ -31540,20 +31535,20 @@ function (_Component) {
         }), {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 280
+            lineNumber: 275
           },
           __self: this
         })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
           className: "EventSearch_locationContainer",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 286
+            lineNumber: 281
           },
           __self: this
         }, loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 287
+            lineNumber: 282
           },
           __self: this
         }, " Loading..."), suggestions.map(function (suggestion) {
@@ -31571,13 +31566,13 @@ function (_Component) {
           }), {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 292
+              lineNumber: 287
             },
             __self: this
           }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("span", {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 295
+              lineNumber: 290
             },
             __self: this
           }, suggestion.description));
@@ -31586,14 +31581,14 @@ function (_Component) {
         className: "EventSearch_required",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 307
+          lineNumber: 302
         },
         __self: this
       }, requiredMessage)), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_action",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 312
+          lineNumber: 307
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("button", {
@@ -31602,109 +31597,88 @@ function (_Component) {
         onClick: this.handleSearchEvents,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 313
+          lineNumber: 308
         },
         __self: this
       }, searchButtonText)))), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_resultsContainer",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 319
+          lineNumber: 314
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, !noResultsMessage && !loading && events.length === 0 && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
+      }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, !gotResults && !loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
         className: "EventSearch_title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 325
+          lineNumber: 320
         },
         __self: this
       }, title), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_paragraph",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 328
+          lineNumber: 323
         },
         __self: this
-      }, paragraph)), loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("section", {
+      }, paragraph)), gotResults && !loading && events.length === 0 && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
+        className: "EventSearch_title",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 332
+        },
+        __self: this
+      }, title), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_paragraph",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 335
+        },
+        __self: this
+      }, "There are no wellness events in your chosen location. Please enter an alternative location.")), loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("section", {
         className: "EventSearch_loadingContent",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 336
+          lineNumber: 342
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loading EventSearch_loading-title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 337
+          lineNumber: 343
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loadingCardContent",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 339
+          lineNumber: 345
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loadingCard",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 340
+          lineNumber: 346
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loading EventSearch_loading-image",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 341
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-cardTitle",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 342
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-info",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 343
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-info",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 344
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-info",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 345
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loadingCard",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 347
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-image",
+      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loading EventSearch_loading-cardTitle",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 348
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-cardTitle",
+        className: "EventSearch_loading EventSearch_loading-info",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 349
@@ -31724,29 +31698,29 @@ function (_Component) {
           lineNumber: 351
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_loading EventSearch_loading-info",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 352
-        },
-        __self: this
       })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loadingCard",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 354
+          lineNumber: 353
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loading EventSearch_loading-image",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 355
+          lineNumber: 354
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loading EventSearch_loading-cardTitle",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 355
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loading EventSearch_loading-info",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 356
@@ -31766,39 +31740,60 @@ function (_Component) {
           lineNumber: 358
         },
         __self: this
+      })), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loadingCard",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 360
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loading EventSearch_loading-image",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 361
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loading EventSearch_loading-cardTitle",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 362
+        },
+        __self: this
       }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_loading EventSearch_loading-info",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 359
+          lineNumber: 363
         },
         __self: this
-      })))), noResultsMessage && !loading && events.length === 0 && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
+      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loading EventSearch_loading-info",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 364
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
+        className: "EventSearch_loading EventSearch_loading-info",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 365
+        },
+        __self: this
+      })))), events.length > 0 && !loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
         className: "EventSearch_title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 368
-        },
-        __self: this
-      }, title), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
-        className: "EventSearch_paragraph",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 371
-        },
-        __self: this
-      }, noResultsMessage)), events.length > 0 && !loading && react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_10___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("h2", {
-        className: "EventSearch_title",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 381
+          lineNumber: 375
         },
         __self: this
       }, "Wellness Events in ".concat(locationValue)), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", {
         className: "EventSearch_filterContainer",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 384
+          lineNumber: 378
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("select", {
@@ -31807,7 +31802,7 @@ function (_Component) {
         onChange: this.handleFilter,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 386
+          lineNumber: 380
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("option", {
@@ -31815,7 +31810,7 @@ function (_Component) {
         value: "All",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 387
+          lineNumber: 381
         },
         __self: this
       }, "All"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("option", {
@@ -31823,7 +31818,7 @@ function (_Component) {
         value: "Free",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 388
+          lineNumber: 382
         },
         __self: this
       }, "Free"), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("option", {
@@ -31831,14 +31826,14 @@ function (_Component) {
         value: "\xA3\xA3\xA3",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 389
+          lineNumber: 383
         },
         __self: this
       }, "\xA3\xA3\xA3"))), react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(_EventsResults__WEBPACK_IMPORTED_MODULE_14__["default"], {
         items: events,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 393
+          lineNumber: 387
         },
         __self: this
       })))));
