@@ -21,7 +21,7 @@
   box-sizing: border-box;
   text-decoration: none;
   outline: none;
-  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  transition-timing-function: timing-function("out-quad"); }
 
 html {
   height: 100%; }
@@ -65,7 +65,7 @@ table {
 html {
   font-weight: 400;
   line-height: 1.5;
-  font-family: TurquoiseBody, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   color: #474747; }
   @media screen and (min-width: 0) and (max-width: 479px) {
     html {
@@ -97,9 +97,6 @@ p {
     margin-bottom: 0; }
 
 .Button {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   position: relative;
   overflow: hidden;
   max-width: 100%;
@@ -114,70 +111,16 @@ p {
     border: 2px solid #fff;
     line-height: calc(3rem - 4px);
     color: #fff; }
-    .Button-ghost .Button_loadingItem {
-      border-color: #fff transparent transparent transparent; }
-    .Button-ghost:hover {
-      background-color: white;
-      border-color: #fff;
-      color: #00B6C8; }
-    .Button-ghost.disabled {
-      opacity: 0.5;
-      cursor: not-allowed; }
   .Button-fill {
     line-height: 3rem;
     color: #fff;
     background-color: #00B6C8; }
     .Button-fill:hover {
       background-color: white; }
-  .Button.loading {
-    padding: 0 5rem 0 3rem; }
-    .Button.loading .Button_loading {
-      visibility: visible;
-      opacity: 1; }
-  .Button.disabled {
-    opacity: 0.5;
-    cursor: not-allowed; }
   .Button_text {
     display: block;
     width: 100%;
     text-align: center; }
-  .Button_loading {
-    position: absolute;
-    display: block;
-    top: 50%;
-    right: 2.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    transform: translateY(-50%);
-    opacity: 0;
-    visibility: hidden; }
-  .Button_loadingItem {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent; }
-    .Button_loadingItem:nth-child(1) {
-      animation-delay: -0.45s; }
-    .Button_loadingItem:nth-child(2) {
-      animation-delay: -0.3s; }
-    .Button_loadingItem:nth-child(3) {
-      animation-delay: -0.15s; }
-  .Button .Button_icon {
-    font-size: 1.25rem;
-    vertical-align: sub;
-    margin-right: 0.5rem;
-    fill: currentColor; }
-
-@keyframes loading {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
 
 .EventDetails {
   padding-bottom: 10rem; }
@@ -214,8 +157,7 @@ p {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1rem 3rem;
-    background-color: #F9F9F9; }
+    padding: 1rem 3rem; }
     @media screen and (max-width: 479px) {
       .EventDetails_eventInfo {
         flex-flow: column;
@@ -590,6 +532,7 @@ p {
 .EventsResults_card {
   flex: 0 0 auto;
   width: 25%;
+  box-shadow: 0 7px 20px -3px rgba(0, 0, 0, 0.15);
   margin: 1rem;
   color: #474747;
   border: 1px solid #ccc; }
@@ -660,7 +603,8 @@ p {
   .Events_heroImage {
     position: relative;
     height: 100%;
-    background-color: grey;
+    background-color: #00B5C9;
+    opacity: 0.5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; }
@@ -668,7 +612,10 @@ p {
     position: absolute;
     top: 50%;
     left: 10%;
-    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #00B6C8;
+    background-color: #fff;
     text-align: center; }
   .Events_bannerTitle {
     font-size: 3rem;
@@ -714,7 +661,8 @@ p {
   .Homepage_heroImage {
     position: relative;
     height: 100%;
-    background-color: grey;
+    background-color: #00B5C9;
+    opacity: 0.5;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; }
@@ -722,8 +670,11 @@ p {
     position: absolute;
     top: 50%;
     left: 50%;
+    padding: 2rem;
     transform: translate(-50%, -50%);
-    color: #fff;
+    border-radius: 10px;
+    color: #00B6C8;
+    background-color: #fff;
     text-align: center; }
   .Homepage_bannerTitle {
     font-size: 3rem;
@@ -744,8 +695,8 @@ p {
     height: 30px;
     width: 30px;
     margin-top: 2rem;
-    border-right: 6px solid white;
-    border-bottom: 6px solid white;
+    border-right: 6px solid #00B6C8;
+    border-bottom: 6px solid #00B6C8;
     background: none;
     transform: rotate(-314deg); }
   .Homepage_section {
@@ -836,7 +787,8 @@ p {
     height: 500px;
     width: 56.25%;
     margin-left: 8rem;
-    background: lightblue; }
+    background-color: #00B5C9;
+    opacity: 0.5; }
     @media screen and (max-width: 767px) {
       .ImageSplit_imageContainer {
         order: 1; } }

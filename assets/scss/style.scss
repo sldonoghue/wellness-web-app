@@ -4,24 +4,13 @@
 @import './config/colors';
 @import './config/helpers';
 @import './config/typography';
-@import './config/ui';
-@import './config/z-index';
 
 @import './tools/functions/breakpoint-value';
 @import './tools/functions/color';
 @import './tools/functions/container-value';
-@import './tools/functions/duration';
-@import './tools/functions/error';
-@import './tools/functions/pythagorus';
 @import './tools/functions/spacing';
-@import './tools/functions/square-root';
-@import './tools/functions/strip-unit';
-@import './tools/functions/timing-function';
 
 @import './tools/mixins/box-shadow';
-@import './tools/mixins/clearfix';
-@import './tools/mixins/ellipsis';
-@import './tools/mixins/error';
 @import './tools/mixins/headings';
 @import './tools/mixins/placeholder';
 @import './tools/mixins/root-component';
@@ -31,8 +20,6 @@
 @import './tools/layout/column';
 @import './tools/layout/component-spacing';
 @import './tools/layout/container';
-@import './tools/layout/offset';
-@import './tools/layout/row';
 
 @import './tools/media-queries/above';
 @import './tools/media-queries/below';

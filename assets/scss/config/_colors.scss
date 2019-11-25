@@ -3,11 +3,6 @@ $colors: (
   "black": #474747,
   "white": #fff,
   "grey": #ccc,
-  "grey-alt": #CFD8DC,
-  "grey-dark": #686868,
-  "grey-gift-list": #909090,
-  "grey-light": #c7c6c6,
-  "grey-ultra-light": #F9F9F9,
   "red": #C9001C,
   "red-light": #C9004C,
 );
@@ -17,7 +12,6 @@ $brand-colors: (
   "primary-active": #00A0B0,
   "primary-dark": #14505B,
   "footer": #F8F8F8,
-  "tags": #14505B,
 );
 
 $font-colors: (
@@ -30,7 +24,6 @@ $button-colors: (
   "fill-color": map-get($brand-colors, "primary"),
   "ghost-border": map-get($colors, "white"),
   "ghost-color": map-get($colors, "white"),
-  "ghost-gift-list": #cdcdcd,
 );
 
 $page-colors: (

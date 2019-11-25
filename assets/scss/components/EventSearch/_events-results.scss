@@ -12,6 +12,7 @@
 
   &_card {
     @include column ( 1 / 4 );
+    @include box-shadow;
     margin: 1rem;
     color: map-get($font-colors, "text-dark");
     border: 1px solid map-get($colors, "grey");

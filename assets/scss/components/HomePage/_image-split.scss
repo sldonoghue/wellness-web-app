@@ -31,7 +31,8 @@
     height: 500px;
     width: 56.25%;
     margin-left: 8rem;
-    background: lightblue;
+    background-color:map-get($colors, "blue-light");
+    opacity: 0.5;
 
     @include below(tablet) {
       order: 1;
