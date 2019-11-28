@@ -27209,7 +27209,7 @@ function EventPage() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!***********************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2FeventPage&absolutePagePath=%2FUsers%2Fsarahdonoghue%2FDocuments%2FProjects%2Fwellness-events-app%2Fpages%2FeventPage.jsx ***!
   \***********************************************************************************************************************************************************************/
@@ -27232,5 +27232,5 @@ module.exports = dll_7aff549c98b978433226;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=eventPage.js.map

@@ -4,6 +4,13 @@
     "static/development/dll/dll_92fa9139568d8c3d8f78.js.map"
   ],
   "pages": {
+    "/": [
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/css/static/development/pages/index.js.chunk.css",
+      "static/runtime/main.js"
+    ],
     "/_app": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
@@ -21,6 +28,13 @@
     ],
     "/events": [
       "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/css/static/development/pages/index.js.chunk.css",
       "static/runtime/main.js"
     ]
   }
