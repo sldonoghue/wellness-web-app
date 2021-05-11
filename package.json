@@ -1,0 +1,47 @@
+{
+  "name": "wellness-events-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sldonoghue/wellness-web-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sldonoghue/wellness-web-app/issues"
+  },
+  "homepage": "https://github.com/sldonoghue/wellness-web-app#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.0",
+    "babel-plugin-inline-import-data-uri": "^1.0.1",
+    "classnames": "^2.2.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "material-ui": "^0.20.2",
+    "material-ui-search-bar": "^0.4.2",
+    "moment": "^2.24.0",
+    "next": "^9.0.3",
+    "next-images": "^1.2.0",
+    "node-sass": "^4.12.0",
+    "prop-types-exact": "^1.2.0",
+    "query-string": "^6.9.0",
+    "react": "^16.8.6",
+    "react-day-picker": "^7.3.2",
+    "react-dependent-script": "^1.1.2",
+    "react-dom": "^16.8.6",
+    "react-load-script": "0.0.6",
+    "react-places-autocomplete": "^7.2.1",
+    "react-required-if": "^1.0.3"
+  },
+  "proxy": "https://www.eventbriteapi.com/v3/events/search/"
+}

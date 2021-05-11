@@ -1,0 +1,33 @@
+$colors: (
+  "blue-light": #00B5C9,
+  "black": #474747,
+  "white": #fff,
+  "grey": #ccc,
+  "red": #C9001C,
+  "red-light": #C9004C,
+);
+
+$brand-colors: (
+  "primary": #00B6C8,
+  "primary-active": #00A0B0,
+  "primary-dark": #14505B,
+  "footer": #F8F8F8,
+);
+
+$font-colors: (
+  "text-dark": #474747,
+  "text-light": #6E6E6E,
+);
+
+$button-colors: (
+  "fill-background": map-get($colors, "white"),
+  "fill-color": map-get($brand-colors, "primary"),
+  "ghost-border": map-get($colors, "white"),
+  "ghost-color": map-get($colors, "white"),
+);
+
+$page-colors: (
+  "page-background": map-get($colors, "white"),
+  "page-color": map-get($colors, "black"),
+);
+

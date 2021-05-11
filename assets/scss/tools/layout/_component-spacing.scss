@@ -1,0 +1,21 @@
+@mixin component-spacing($root-child-1-has-margin: true) {
+  margin-top: spacing(3);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @if ($root-child-1-has-margin == true) {
+    @include root-component {
+      &:first-child {
+        margin-top: spacing(2);
+      }
+    }
+  }
+
+  @if ($root-child-1-has-margin == false) {
+    .Breadcrumbs + & {
+      margin-top: 0;
+    }
+  }
+}

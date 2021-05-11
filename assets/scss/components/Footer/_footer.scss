@@ -1,0 +1,36 @@
+.Footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  min-height: 65px;
+  width: 100%;
+  background-color: map-get($brand-colors, "primary-dark");
+
+
+  &_list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+    padding: 0 6.5rem;
+
+    @include below(mobile-large) {
+      flex-flow: column;
+      text-align: center;
+    }
+  }
+
+  &_link {
+    color: map-get($colors, "white");
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    list-style: none;
+
+    & + & {
+      @include below(mobile-large) {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.Button {
+  $root: &;
+  $loadingSize: map-get($button, "height") / 2;
+  
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  height: map-get($button, "height");
+  padding: 0 map-get($button, "padding");
+  font-size: map-get($button, "font-size-large");
+  font-weight: 800;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+
+  &-ghost {
+    border: map-get($button, "border-width") solid map-get($button-colors, "ghost-border");
+    line-height: calc(#{map-get($button, "height")} - #{map-get($button, "border-width") * 2});
+    color: map-get($button-colors, "ghost-color");
+  }
+
+  &-fill {
+    line-height: map-get($button, "height");
+    color: map-get($colors, "white");
+    background-color: map-get($brand-colors, "primary");
+
+    &:hover {
+      background-color: lighten(map-get($button-colors, "fill-background"), 5%);
+    }
+  }
+
+  &_text {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}

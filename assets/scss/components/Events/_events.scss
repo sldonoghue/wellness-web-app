@@ -1,0 +1,38 @@
+.Events {
+  padding-bottom: 14rem;
+  
+  &_bannerContainer {
+    position: relative;
+    height: 54.5rem;
+    width: 100%;
+
+    @include below(desktop) {
+      height: 32.5rem;
+    }
+  }
+
+  &_heroImage {
+    position: relative;
+    height: 100%;
+    background-color:map-get($colors, "blue-light");
+    opacity: 0.5;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    padding: 2rem;
+    border-radius: 10px;
+    color: map-get($brand-colors, "primary");
+    background-color: map-get($colors, "white");
+    text-align: center;
+  }
+
+  &_bannerTitle {
+    @include heading-one;
+  }
+}

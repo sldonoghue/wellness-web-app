@@ -1,0 +1,12 @@
+@mixin title-divider {
+  $spacer-width: 60px;
+  &::after {
+    content: '';
+    position: absolute;
+    width: $spacer-width;
+    height: 1rem;
+    bottom: -1rem;
+    left: calc(50% - #{$spacer-width / 2});
+    border-bottom: 2px solid map-get($brand-colors, 'primary');
+  }
+}

@@ -1,0 +1,85 @@
+.EventsResults {
+
+  &_list {
+    @include container;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: center;
+    margin: 2rem 0;
+    list-style: none;
+  }
+
+  &_card {
+    @include column ( 1 / 4 );
+    @include box-shadow;
+    margin: 1rem;
+    color: map-get($font-colors, "text-dark");
+    border: 1px solid map-get($colors, "grey");
+
+    @include below(desktop) {
+      @include column( 1 / 3);
+    }
+
+    @include below(mobile-large) {
+      @include column (1);
+    }
+  }
+
+  &_imageContainer {
+    overflow: hidden;
+    height: 12.5rem;
+    background: lightblue;
+  }
+
+  &_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_textContent {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 1rem;
+    min-height: 18rem;
+    color: black;
+  }
+
+  &_title {
+    color: map-get($brand-colors, "primary-dark");
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+  }
+
+  &_details {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  &_date,
+  &_price {
+    font-size: 0.85rem;
+  }
+
+  &_button {
+    background-color: map-get($brand-colors, "primary");
+    color: map-get($colors, "white");
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    &:hover {
+      background-color: map-get($brand-colors, "primary-active");
+    }
+
+    @include below(mobile-large) {
+      width: 80%;
+    }
+  }
+}

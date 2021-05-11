@@ -1,0 +1,30 @@
+$breakpoints: (
+  "mobile": 0,
+  "mobile-large": 480px,
+  "tablet": 768px,
+  "desktop": 1024px,
+  "desktop-large": 1440px,
+);
+
+$container: (
+  "mobile": (
+    "padding": 1rem,
+    "max-width": none,
+  ),
+  "mobile-large": (
+    "padding": 1.5rem,
+    "max-width": none,
+  ),
+  "tablet": (
+    "padding": 1.5rem,
+    "max-width": none,
+  ),
+  "desktop": (
+    "padding": 2rem,
+    "max-width": none,
+  ),
+  "desktop-large": (
+    "padding": 2rem,
+    "max-width": 1600px,
+  ),
+);

@@ -1,0 +1,172 @@
+.EventDetails {
+  padding-bottom: 10rem;
+
+  @include below(tablet) {
+    padding-bottom: 13rem;
+  }
+
+  &_imageContainer {
+    position: relative;
+    height: 28rem;
+    width: 100%;
+    background: lightblue;
+  }
+
+  &_image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &_content {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &_title {
+    padding: 1rem 3rem;
+    color: map-get($brand-colors, "primary-dark");
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: uppercase;
+
+    @include below(mobile-large) {
+      padding: 1rem;
+    }
+  }
+
+  &_eventInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 3rem;
+    background-color: map-get($colors, "grey-ultra-light");
+
+    @include below(mobile-large) {
+      flex-flow: column;
+      align-items: baseline;
+      padding: 1rem;
+    }
+  }
+
+  &_time {
+    font-weight: 600;
+
+    & + & {
+      margin-top: 0.5rem
+    }
+  }
+
+  &_actions {
+    display: flex;
+    margin-top: 0.5rem;
+
+    @include below(mobile-large) {
+      width: 100%;
+    }
+  }
+
+  &_button {
+    width: 10rem;
+    padding: 0.9rem;
+    background-color: map-get($brand-colors, "primary");
+    color: map-get($colors, "white");
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    &:hover {
+      background-color: map-get($brand-colors, "primary-active");
+    }
+
+    @include below(mobile-large) {
+      width: 100%;
+    }
+  }
+
+  &_address {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    font-weight: 600;
+
+    @include below(mobile-large) {
+      margin-top: 0.5rem;
+      align-items: flex-start;
+    }
+  }
+
+  &_capacity {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &_price {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  &_description {
+    padding: 3rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  &_friendsContainer {
+    @include container;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &_friendsContent {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    & + & {
+      @include below(desktop) {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  &_friendTitle {
+    @include title-divider;
+    position: relative;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include below(mobile-large) {
+      width: 80%;
+    }
+  }
+
+  &_friendList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 400px;
+    height: 100%;
+    margin-top: 2rem;
+    list-style: none;
+  }
+
+  &_friendProfile {
+    @include column (1 / 6 );
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    background: map-get($brand-colors, "primary");
+    margin: 1rem;
+  }
+}

@@ -1,0 +1,220 @@
+.EventSearch {
+  $root: &;
+
+  &_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &_searchBar {
+    position: absolute;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 50%;
+    background: map-get($colors, "white");
+    transform: translateY(-50%);
+    border: 1px solid map-get($colors, "grey");
+    border-radius: 5px;
+
+    @include below(desktop) {
+      flex-flow: column;
+    }
+
+    @include below(tablet) {
+      left: 2.5rem;
+      width: 90%;
+    }
+
+    @include below(mobile-large) {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &_searchFilter {
+    display: flex;
+    flex-flow: column; 
+    padding: 0 1rem;
+    width: 100%;
+
+    & + & {
+      border-left : 1px solid grey;
+    }
+
+    @include below(desktop) {
+      margin: 1rem 0;
+    }
+  }
+
+  &_label {
+    color: map-get($font-colors, "text-dark");
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &_value {
+    height: 1.5rem;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    font-size: 1.125rem;
+  }
+
+  &_action {
+    display: flex;
+    align-items: center;
+  }
+
+  &_button {
+    background-color: map-get($brand-colors, "primary");
+    color: map-get($colors, "white");
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    &:hover {
+      background-color: map-get($brand-colors, "primary-active");
+    }
+
+    @include below(desktop) {
+      width: 100%;
+    }
+  }
+
+  &_datePicker {
+    display: none;
+
+    &-active {
+      position: absolute;
+      z-index: 2;
+      display: block;
+      margin: 3rem -1rem;
+      background-color: map-get($colors, "white");
+      box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    }
+  }
+
+  &_date {
+    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+      background-color: #f0f8ff !important;
+      color: #4a90e2;
+    }
+
+    .DayPicker-Day {
+      border-radius: 0 !important;
+    }
+  }
+
+  &_locationContainer {
+    position: absolute;
+    width: 50%;
+    margin-top: 0.4rem;
+    background-color: map-get($colors, "white");
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+
+    @include below(desktop) {
+      z-index: 10;
+      width: 80%;
+    }
+  }
+
+  &_suggestion {
+    font-size: 1.125rem;
+    padding: 0 0.5rem;
+
+    & + & {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &_resultsContainer {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 5rem;
+
+    @include below(desktop) {
+      margin-top: 10rem;
+    }
+  }
+
+  &_loadingContent {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  &_loadingCardContent {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 2rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  &_loadingCard {
+    @include column (1 / 3);
+    display: flex;
+    flex-flow: column;
+    padding: 1rem 4rem;
+  }
+
+  &_loading {
+    @include placeholder;
+    &-title {
+      height: 80px;
+      width: 400px;
+    }
+  }
+
+  &_title {
+    @include heading-two;
+    width: 500px;
+    text-align: center;
+
+    @include below(mobile-large) {
+      width: 80%;
+    }
+  }
+
+  &_paragraph {
+    margin-top: 2rem;
+    color: map-get($colors, "text-dark");
+    font-size: 1.2rem;
+    
+    @include below(mobile-large) {
+      width: 80%;
+    }
+  }
+
+  &_required {
+    color: map-get($colors, "red");
+    font-size: 0.875rem;
+  }
+
+  &_filterContainer {
+    @include container;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &_filter {
+    width: 120px;
+    border: 1px solid map-get($brand-colors, "primary-dark");
+    background-color: map-get($colors, "white");
+    font-size: 1rem;
+
+    &:hover {
+      border: 1px solid map-get($brand-colors, "primary-active");
+    }
+
+    @include below(mobile-large) {
+      margin-top: 1rem;
+    }
+  }
+}
