@@ -6,3 +6,4 @@ Tech stack:
 
 - React
 - Next JS
+- Sass/SCSS
